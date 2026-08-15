@@ -1,31 +1,128 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>Coulomb</title><style>
-:root{--bg:#0e141b;--card:#161f2a;--line:#243140;--fg:#e8eef5;--dim:#93a3b5;--accent:#2ecc71}
-body{margin:0;padding:18px;font:15px/1.6 -apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--fg)}
-h1{font-size:1.4rem;margin:0 0 4px}h2{font-size:1.05rem;margin:22px 0 6px;color:var(--accent)}
-.lead{color:var(--dim);margin:0 0 18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
-code{font-family:ui-monospace,Menlo,monospace;background:#0b1017;padding:1px 5px;border-radius:5px}
-ul{padding-left:18px;margin:6px 0}li{margin:4px 0}a{color:var(--accent)}
-table{width:100%;border-collapse:collapse;font-size:.93rem}
-td{padding:5px 0;border-bottom:1px solid var(--line)}td:first-child{color:var(--dim);width:40%}
-@media(prefers-color-scheme:light){:root{--bg:#f5f7fa;--card:#fff;--line:#dfe5ec;--fg:#16202b;--dim:#5d6b7a}code{background:#eef1f5}}
-</style></head><body><h1>Coulomb</h1><p class="lead">Wer frisst hier den Akku?</p>
-<div class="card"><p>Profilbasiertes Energiemanagement für den A13. Statt pauschal
-alles zu drosseln, schaltet Coulomb je nach Lage zwischen Profilen um – und zeigt
-per Telemetrie, was das bringt.</p></div>
-<h2>Enthalten</h2><div class="card"><table>
-<tr><td>App</td><td>Coulomb auf dem Homescreen</td></tr>
-<tr><td>Einstellungen</td><td>eigener Bereich in den iOS-Einstellungen</td></tr>
-<tr><td>Tweak</td><td>läuft im Hintergrund mit</td></tr></table></div>
-<h2>Neu in 0.8.0</h2><ul>
-<li>Automatischer Energiesparmodus</li><li>Verlauf über die Zeit</li>
-<li>Verbessertes Layout</li></ul>
-<h2>Voraussetzungen</h2><div class="card"><table>
-<tr><td>System</td><td>iOS 18, rootless</td></tr>
-<tr><td>Gerät</td><td>auf A13 ausgelegt (iPhone 11)</td></tr>
-<tr><td>Benötigt</td><td>ellekit, preferenceloader</td></tr></table>
-<p class="lead" style="margin:10px 0 0">Beide Abhängigkeiten installiert Sileo
-automatisch mit.</p></div>
-<p class="lead" style="margin-top:22px"><a href="https://github.com/fabiangold/ggtweaks">Quellcode auf GitHub</a></p>
-</body></html>
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coulomb — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>Coulomb</h1>
+  <p class="lead" data-lang="de">
+    Profilbasiertes Energiemanagement mit Telemetrie und Steuer-App. Version 0.8.0.
+  </p>
+  <p class="lead" data-lang="en">
+    Profile-based power management with telemetry and a control app. Version 0.8.0.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.coulomb_0.8.0_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Funktionsweise</h2>
+<h2 data-lang="en">How it works</h2>
+<div class="card">
+  <p data-lang="de">
+    Coulomb schaltet je nach Betriebslage zwischen Energieprofilen um, statt
+    pauschal zu drosseln. Die begleitende Telemetrie zeigt, welchen Effekt die
+    Profile haben und wohin der Verbrauch geht.
+  </p>
+  <p data-lang="en">
+    Coulomb switches between power profiles depending on the situation instead
+    of throttling across the board. The accompanying telemetry shows what the
+    profiles achieve and where consumption goes.
+  </p>
+</div>
+
+<h2 data-lang="de">Bestandteile</h2>
+<h2 data-lang="en">Components</h2>
+<div class="card">
+  <table>
+    <tr>
+      <td data-lang="de">App</td><td data-lang="en">App</td>
+      <td data-lang="de">Coulomb auf dem Home-Bildschirm</td>
+      <td data-lang="en">Coulomb on the home screen</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Einstellungen</td><td data-lang="en">Settings</td>
+      <td data-lang="de">Eigener Bereich in den iOS-Einstellungen</td>
+      <td data-lang="en">Dedicated section in iOS Settings</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Tweak</td><td data-lang="en">Tweak</td>
+      <td data-lang="de">Läuft im Hintergrund mit</td>
+      <td data-lang="en">Runs in the background</td>
+    </tr>
+  </table>
+</div>
+
+<h2 data-lang="de">Neu in 0.8.0</h2>
+<h2 data-lang="en">New in 0.8.0</h2>
+<ul data-lang="de">
+  <li>Automatischer Energiesparmodus</li>
+  <li>Verlauf über die Zeit</li>
+  <li>Überarbeitetes Layout</li>
+</ul>
+<ul data-lang="en">
+  <li>Automatic low power mode</li>
+  <li>History over time</li>
+  <li>Revised layout</li>
+</ul>
+
+<h2 data-lang="de">Voraussetzungen</h2>
+<h2 data-lang="en">Requirements</h2>
+<div class="card">
+  <table>
+    <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
+    <tr>
+      <td data-lang="de">Gerät</td><td data-lang="en">Device</td>
+      <td data-lang="de">Auf A13 ausgelegt (iPhone 11)</td>
+      <td data-lang="en">Targets A13 (iPhone 11)</td>
+    </tr>
+    <tr><td data-lang="de">Abhängigkeiten</td><td data-lang="en">Dependencies</td><td>ellekit, preferenceloader</td></tr>
+  </table>
+  <p class="note" data-lang="de">
+    Beide Abhängigkeiten installiert Sileo automatisch mit. Fehlt
+    <code>preferenceloader</code>, erscheint der Einstellungsbereich nicht; der
+    Tweak selbst läuft trotzdem.
+  </p>
+  <p class="note" data-lang="en">
+    Sileo installs both dependencies automatically. Without
+    <code>preferenceloader</code> the settings section will not appear, but the
+    tweak itself still runs.
+  </p>
+</div>
+
+<footer>
+  <p data-lang="de">
+    Paket <code>com.ggtweaks.coulomb</code> ·
+    <a href="https://github.com/fabiangold/ggtweaks">Quellcode</a>
+  </p>
+  <p data-lang="en">
+    Package <code>com.ggtweaks.coulomb</code> ·
+    <a href="https://github.com/fabiangold/ggtweaks">Source</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

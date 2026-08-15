@@ -1,37 +1,169 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>VPN Kill Switch</title><style>
-:root{--bg:#0e141b;--card:#161f2a;--line:#243140;--fg:#e8eef5;--dim:#93a3b5;--accent:#2ecc71}
-body{margin:0;padding:18px;font:15px/1.6 -apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--fg)}
-h1{font-size:1.4rem;margin:0 0 4px}h2{font-size:1.05rem;margin:22px 0 6px;color:var(--accent)}
-.lead{color:var(--dim);margin:0 0 18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
-code{font-family:ui-monospace,Menlo,monospace;background:#0b1017;padding:1px 5px;border-radius:5px}
-ul{padding-left:18px;margin:6px 0}li{margin:4px 0}a{color:var(--accent)}
-table{width:100%;border-collapse:collapse;font-size:.93rem}
-td{padding:5px 0;border-bottom:1px solid var(--line)}td:first-child{color:var(--dim);width:40%}
-@media(prefers-color-scheme:light){:root{--bg:#f5f7fa;--card:#fff;--line:#dfe5ec;--fg:#16202b;--dim:#5d6b7a}code{background:#eef1f5}}
-</style></head><body><h1>VPN Kill Switch</h1><p class="lead">Kein VPN, kein Internet.</p>
-<div class="card"><p>Bricht die VPN-Verbindung ab, macht dieser Tweak in derselben
-Sekunde dicht. Ohne ihn läuft dein Verkehr klammheimlich am Tunnel vorbei weiter.</p></div>
-<h2>Was es besser macht</h2><ul>
-<li><strong>Reagiert sofort</strong> über Kernel-Ereignisse statt Nachschauen im Sekundentakt</li>
-<li><strong>Blockt auch IPv6</strong> – ein reiner IPv4-Block ist ein Sieb mit Zertifikat</li>
-<li><strong>Du siehst es</strong>: Live-Verkehrsanzeige pro Schnittstelle, Lecks werden rot</li>
-<li><strong>Reconnect klappt</strong> über eine Ausnahmeliste mit selbst gelernten Adressen</li>
-<li><strong>Eigene Sperrregeln</strong>, auch ganze Bereiche wie <code>17.0.0.0/8</code></li></ul>
-<h2>Nach der Installation</h2><div class="card">
-<p>Startet im <strong>Testmodus</strong> und blockt zunächst nichts – so kannst du dich
-beim Ausprobieren nicht aussperren.</p>
-<p>App öffnen → VPN verbinden → <strong>Endpoint lernen</strong> → <strong>Scharf schalten</strong> → prüfen.</p></div>
-<h2>Ehrlich dazu</h2><ul>
-<li>Bei aktivem Schutz ohne VPN meldet iOS „kein Internet“. Das ist der Zweck.</li>
-<li>Eingehende Pakete lassen sich über Routen nicht verhindern – nur ausgehende zählen.</li>
-<li>Manche VPN-Apps versuchen bei aktivem Block gar keinen Aufbau. Dafür gibt es Pause.</li>
-<li>Dauerhaft aussperren geht nicht: nach zehn Minuten gibt der Daemon von selbst frei.</li></ul>
-<h2>Voraussetzungen</h2><div class="card"><table>
-<tr><td>System</td><td>iOS 18, rootless</td></tr>
-<tr><td>Jailbreak</td><td>Dopamine, palera1n</td></tr>
-<tr><td>Architektur</td><td>arm64 und arm64e</td></tr>
-<tr><td>Getestet auf</td><td>iPhone 11, iOS 18.6.2</td></tr></table></div>
-<p class="lead" style="margin-top:22px"><a href="https://github.com/fabiangold/ggtweaks">Quellcode auf GitHub</a></p>
-</body></html>
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VPN Kill Switch — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>VPN Kill Switch</h1>
+  <p class="lead" data-lang="de">
+    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.6.1.
+  </p>
+  <p class="lead" data-lang="en">
+    Blocks network traffic as soon as the VPN connection drops. Version 3.6.1.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.6.1_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Funktionsweise</h2>
+<h2 data-lang="en">How it works</h2>
+<div class="card">
+  <p data-lang="de">
+    Ein Hintergrunddienst beobachtet die Routing-Tabelle des Systems. Liegt die
+    Default-Route auf einem <code>utun</code>-Interface, gilt das VPN als aktiv.
+    Verschwindet sie, wird der ausgehende Verkehr über Sperrrouten unterbunden –
+    für IPv4 und IPv6.
+  </p>
+  <p data-lang="en">
+    A background daemon watches the system routing table. If the default route
+    sits on a <code>utun</code> interface, the VPN counts as active. When it
+    disappears, outbound traffic is cut off using blocking routes — for both
+    IPv4 and IPv6.
+  </p>
+  <p class="note" data-lang="de">
+    Der Dienst hängt am Routing-Socket des Kernels und wird über Ereignisse
+    benachrichtigt, statt in festen Abständen nachzusehen. Zwischen Abriss und
+    Sperre liegen Millisekunden.
+  </p>
+  <p class="note" data-lang="en">
+    The daemon listens on the kernel routing socket and is notified by events
+    rather than polling. The gap between drop and block is milliseconds.
+  </p>
+</div>
+
+<h2 data-lang="de">Funktionen</h2>
+<h2 data-lang="en">Features</h2>
+<ul data-lang="de">
+  <li>Sperrt IPv4 und IPv6 getrennt voneinander</li>
+  <li>Ausnahmeliste für VPN-Server, damit die VPN-App neu verbinden kann</li>
+  <li>Erkennt Server-Adressen selbstständig und übernimmt sie nach mehrfacher Bestätigung</li>
+  <li>Eigene Sperrliste für dauerhaft blockierte Ziele, auch ganze Bereiche wie <code>17.0.0.0/8</code></li>
+  <li>Drei Sperrverfahren wählbar: an Interfaces gebunden, global verwerfend oder ablehnend</li>
+  <li>App mit Live-Anzeige des Datenverkehrs pro Interface, getrennt nach Richtung</li>
+  <li>Installationstest und Diagnosebericht zum Weitergeben</li>
+  <li>Pause-Funktion für gewollte Trennungen, endet automatisch bei bestehender Verbindung</li>
+  <li>Notbremse: Ein Block wird nach zehn Minuten ohne VPN selbstständig aufgehoben</li>
+</ul>
+<ul data-lang="en">
+  <li>Blocks IPv4 and IPv6 independently</li>
+  <li>Allow-list for VPN servers so the VPN app can reconnect</li>
+  <li>Detects server addresses on its own, adopting them after repeated confirmation</li>
+  <li>Separate block list for permanently unreachable targets, including ranges like <code>17.0.0.0/8</code></li>
+  <li>Three blocking styles: interface-scoped, globally discarding, or rejecting</li>
+  <li>App with live per-interface traffic view, separated by direction</li>
+  <li>Installation test and shareable diagnostic report</li>
+  <li>Pause for intentional disconnects, ends automatically once the tunnel is back</li>
+  <li>Safety release: a block is lifted automatically after ten minutes without VPN</li>
+</ul>
+
+<h2 data-lang="de">Einrichtung</h2>
+<h2 data-lang="en">Setup</h2>
+<div class="card">
+  <p data-lang="de">
+    Nach der Installation ist der Tweak im Testmodus und blockiert nichts. So
+    lässt sich die Erkennung prüfen, ohne sich auszusperren.
+  </p>
+  <p data-lang="en">
+    After installation the tweak runs in test mode and blocks nothing, so the
+    detection can be verified without risking a lockout.
+  </p>
+  <ol data-lang="de">
+    <li>App <em>Kill Switch</em> öffnen</li>
+    <li>VPN verbinden, dann <em>Lernen</em> antippen</li>
+    <li><em>Scharf</em> antippen</li>
+    <li>VPN trennen und im Verkehrsmonitor prüfen, dass nichts mehr ausgeht</li>
+  </ol>
+  <ol data-lang="en">
+    <li>Open the <em>Kill Switch</em> app</li>
+    <li>Connect the VPN, then tap <em>Lernen</em> (learn)</li>
+    <li>Tap <em>Scharf</em> (arm)</li>
+    <li>Disconnect the VPN and check the traffic monitor for outbound traffic</li>
+  </ol>
+</div>
+
+<h2 data-lang="de">Grenzen</h2>
+<h2 data-lang="en">Limitations</h2>
+<div class="card">
+  <table>
+    <tr>
+      <td data-lang="de">Granularität</td><td data-lang="en">Granularity</td>
+      <td data-lang="de">Regeln gelten pro Ziel-Adresse, nicht pro App oder Port. Dafür wären <code>pf</code> oder eine Network Extension nötig; iOS stellt beides hier nicht bereit.</td>
+      <td data-lang="en">Rules apply per destination address, not per app or port. That would require <code>pf</code> or a Network Extension, neither of which is available here.</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Eingehend</td><td data-lang="en">Inbound</td>
+      <td data-lang="de">Routen steuern nur ausgehenden Verkehr. Eingehende Pakete erreichen weiterhin die Schnittstelle, können aber nicht beantwortet werden.</td>
+      <td data-lang="en">Routes only control outbound traffic. Inbound packets still reach the interface but cannot be answered.</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Systemverhalten</td><td data-lang="en">System behaviour</td>
+      <td data-lang="de">Bei aktiver Sperre meldet iOS gegebenenfalls „keine Internetverbindung“ und wechselt auf Mobilfunk, wo ebenfalls gesperrt wird.</td>
+      <td data-lang="en">While blocking, iOS may report “no internet connection” and switch to cellular, where blocking also applies.</td>
+    </tr>
+    <tr>
+      <td data-lang="de">VPN-Apps</td><td data-lang="en">VPN apps</td>
+      <td data-lang="de">Manche Apps starten bei gesperrtem Netz keinen Verbindungsaufbau. Dafür gibt es die Pause-Funktion und ein automatisches Verbindungsfenster.</td>
+      <td data-lang="en">Some apps will not attempt a connection while the network is blocked. The pause function and an automatic reconnect window address this.</td>
+    </tr>
+  </table>
+</div>
+
+<h2 data-lang="de">Voraussetzungen</h2>
+<h2 data-lang="en">Requirements</h2>
+<div class="card">
+  <table>
+    <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
+    <tr><td data-lang="de">Jailbreak</td><td data-lang="en">Jailbreak</td><td>Dopamine, palera1n</td></tr>
+    <tr><td data-lang="de">Architektur</td><td data-lang="en">Architecture</td><td>arm64, arm64e</td></tr>
+    <tr><td data-lang="de">Abhängigkeiten</td><td data-lang="en">Dependencies</td><td>—</td></tr>
+    <tr><td data-lang="de">Getestet mit</td><td data-lang="en">Tested with</td><td>Mullvad (WireGuard)</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p data-lang="de">
+    Paket <code>com.ggtweaks.vpnkillswitch</code> ·
+    <a href="https://github.com/fabiangold/ggtweaks">Quellcode</a>
+  </p>
+  <p data-lang="en">
+    Package <code>com.ggtweaks.vpnkillswitch</code> ·
+    <a href="https://github.com/fabiangold/ggtweaks">Source</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

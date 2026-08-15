@@ -4,25 +4,27 @@
   "tintColor": "#F5A623",
   "tabs": [
     {
-      "tabname": "Überblick",
+      "tabname": "Details",
       "class": "DepictionStackView",
       "views": [
-        { "class": "DepictionSubheaderView", "title": "Wer frisst hier den Akku?" },
         { "class": "DepictionMarkdownView",
-          "markdown": "Profilbasiertes Energiemanagement für den A13. Statt pauschal alles zu drosseln, schaltet Coulomb je nach Lage zwischen Profilen um – und zeigt dir per Telemetrie, was das bringt.\n\nDer Akku hält dadurch nicht ewig. Aber du weißt endlich, wohin er geht." },
+          "markdown": "Profilbasiertes Energiemanagement. Coulomb schaltet je nach Betriebslage zwischen Energieprofilen um, statt pauschal zu drosseln. Die begleitende Telemetrie zeigt, welchen Effekt die Profile haben und wohin der Verbrauch geht." },
         { "class": "DepictionSeparatorView" },
-        { "class": "DepictionSubheaderView", "title": "Enthalten" },
-        { "class": "DepictionTableTextView", "title": "App", "text": "Coulomb auf dem Homescreen" },
+        { "class": "DepictionSubheaderView", "title": "Bestandteile" },
+        { "class": "DepictionTableTextView", "title": "App", "text": "Coulomb auf dem Home-Bildschirm" },
         { "class": "DepictionTableTextView", "title": "Einstellungen", "text": "eigener Bereich in den iOS-Einstellungen" },
         { "class": "DepictionTableTextView", "title": "Tweak", "text": "läuft im Hintergrund mit" },
         { "class": "DepictionSeparatorView" },
         { "class": "DepictionSubheaderView", "title": "Neu in 0.8.0" },
         { "class": "DepictionMarkdownView",
-          "markdown": "- Automatischer Energiesparmodus\n- Verlauf über die Zeit\n- Verbessertes Layout" }
+          "markdown": "- Automatischer Energiesparmodus\n- Verlauf über die Zeit\n- Überarbeitetes Layout" },
+        { "class": "DepictionTableButtonView", "title": "Ausführliche Beschreibung",
+          "action": "https://fabiangold.github.io/ggtweaks/depictions/coulomb/",
+          "openExternal": true }
       ]
     },
     {
-      "tabname": "Voraussetzungen",
+      "tabname": "System",
       "class": "DepictionStackView",
       "views": [
         { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
@@ -30,8 +32,8 @@
         { "class": "DepictionTableTextView", "title": "Benötigt", "text": "ellekit, preferenceloader" },
         { "class": "DepictionSeparatorView" },
         { "class": "DepictionMarkdownView",
-          "markdown": "Beide Abhängigkeiten installiert Sileo automatisch mit. Fehlt **preferenceloader**, taucht der Einstellungsbereich nicht auf – der Tweak läuft trotzdem." },
-        { "class": "DepictionTableButtonView", "title": "Quellcode auf GitHub",
+          "markdown": "Beide Abhängigkeiten installiert Sileo automatisch mit. Fehlt `preferenceloader`, erscheint der Einstellungsbereich nicht; der Tweak selbst läuft trotzdem." },
+        { "class": "DepictionTableButtonView", "title": "Quellcode",
           "action": "https://github.com/fabiangold/ggtweaks", "openExternal": true }
       ]
     }

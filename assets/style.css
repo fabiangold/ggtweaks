@@ -1,0 +1,84 @@
+/* Gemeinsame Gestaltung fuer Startseite und Paketseiten. */
+:root {
+  --bg:#0e141b; --card:#161f2a; --line:#243140;
+  --fg:#e8eef5; --dim:#93a3b5; --accent:#2ecc71;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; padding:0 20px 64px;
+  font:16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background:var(--bg); color:var(--fg);
+}
+.wrap { max-width:760px; margin:0 auto; }
+a { color:var(--accent); }
+
+/* Kopfzeile mit Sprachumschalter */
+.topbar {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0; gap:12px;
+}
+.back { color:var(--dim); text-decoration:none; font-size:.9rem; }
+.back:hover { color:var(--accent); }
+.langtoggle {
+  display:inline-flex; border:1px solid var(--line); border-radius:999px;
+  overflow:hidden; background:var(--card); flex:0 0 auto;
+}
+.langtoggle button {
+  appearance:none; border:0; background:transparent; color:var(--dim);
+  font:600 13px/1 inherit; padding:9px 14px; cursor:pointer;
+}
+.langtoggle button[aria-pressed="true"] { background:var(--accent); color:#08130c; }
+
+header { padding:12px 0 26px; }
+header.center { text-align:center; }
+header img { width:96px; height:96px; border-radius:22px; }
+h1 { font-size:1.9rem; margin:14px 0 6px; letter-spacing:-.02em; }
+.lead { color:var(--dim); margin:0; }
+
+h2 { font-size:1.1rem; margin:30px 0 10px; }
+h3 { font-size:1rem; margin:22px 0 4px; }
+
+.card {
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:18px 20px; margin:14px 0;
+}
+/* Paketliste auf der Startseite */
+a.pkg {
+  display:block; text-decoration:none; color:inherit;
+  background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:18px 20px; margin:12px 0;
+}
+a.pkg:hover { border-color:var(--accent); }
+a.pkg .name { font-weight:600; font-size:1.05rem; }
+a.pkg .ver { color:var(--dim); font-size:.85rem; font-weight:400; margin-left:8px; }
+a.pkg .desc { color:var(--dim); margin:5px 0 0; font-size:.95rem; }
+
+code, .url { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.92rem; }
+.url {
+  display:block; background:#0b1017; border:1px solid var(--line);
+  border-radius:10px; padding:12px 14px; margin:10px 0 4px;
+  color:var(--accent); word-break:break-all; user-select:all;
+}
+ul { padding-left:20px; margin:8px 0; }
+li { margin:5px 0; }
+table { width:100%; border-collapse:collapse; font-size:.94rem; }
+td { padding:7px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+td:first-child { color:var(--dim); width:38%; }
+tr:last-child td { border-bottom:0; }
+
+.note { color:var(--dim); font-size:.9rem; }
+.btns { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0; }
+.btn {
+  flex:1 1 150px; text-align:center; text-decoration:none; padding:12px 16px;
+  border-radius:11px; font-weight:600; font-size:.95rem; border:1px solid var(--line);
+}
+.btn.primary { background:var(--accent); color:#08130c; border-color:transparent; }
+.btn.plain { background:#0b1017; color:var(--fg); }
+footer { color:var(--dim); font-size:.85rem; padding-top:32px; border-top:1px solid var(--line); margin-top:36px; }
+
+html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"] { display:none; }
+
+@media (prefers-color-scheme: light) {
+  :root { --bg:#f5f7fa; --card:#fff; --line:#dfe5ec; --fg:#16202b; --dim:#5d6b7a; }
+  .url, .btn.plain { background:#f0f3f7; }
+}

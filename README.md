@@ -1,88 +1,66 @@
 # GGTweaks
 
-**Nur iOS 18. Sonst nichts.** · *iOS 18 only. Nothing else.*
+Jailbreak-Tweaks für iOS 18. Rootless, quelloffen.
 
-Kleine Jailbreak-Tweaks für Leute, die ihrem Telefon beim Arbeiten über die
-Schulter schauen wollen. Weißer Hut, offener Quellcode, keine Werbung, kein
-Konto, kein „Pro“-Abo.
+**Quelle:** `https://fabiangold.github.io/ggtweaks/`
 
-→ **[Webseite mit Sprachumschalter](https://fabiangold.github.io/ggtweaks/)**
-
-## Quelle hinzufügen
-
-```
-https://fabiangold.github.io/ggtweaks/
-```
-
-Alles klein geschrieben — GitHub Pages unterscheidet Groß- und Kleinschreibung,
-mit großen Buchstaben gibt es einen 404er.
-
-## Warum nur iOS 18?
-
-Weil ich genau ein Testgerät habe, und das läuft auf iOS 18. Alles andere wäre
-geraten, und geratene Tweaks sind der Grund, warum Leute Angst vor Jailbreaks
-haben.
-
-Gebaut und getestet auf einem iPhone 11 mit Dopamine (rootless), `arm64` und
-`arm64e`.
+Die Adresse ist kleingeschrieben — GitHub Pages unterscheidet Groß- und
+Kleinschreibung. In Sileo oder Zebra unter Quellen hinzufügen.
 
 ## Pakete
 
-### VPN Kill Switch
+| Paket | Version | Beschreibung |
+|---|---|---|
+| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.6.1 | Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht |
+| [Coulomb](https://fabiangold.github.io/ggtweaks/depictions/coulomb/) | 0.8.0 | Profilbasiertes Energiemanagement mit Telemetrie und Steuer-App |
 
-Reißt die VPN-Verbindung ab, macht dieser Tweak sofort dicht — statt dass der
-Datenverkehr klammheimlich am Tunnel vorbeispaziert.
+Ausführliche Beschreibungen stehen auf den jeweiligen Paketseiten.
 
-- Reagiert auf Kernel-Ereignisse, statt im Sekundentakt nachzusehen
-- Blockiert IPv4 **und** IPv6 — im Mobilfunk läuft das meiste über IPv6, ein
-  reiner IPv4-Block ist ein Sieb mit Zertifikat
-- Ausnahmeliste, damit die VPN-App sich neu verbinden kann
-- Eigene Sperrliste, auch für ganze Bereiche wie `17.0.0.0/8`
-- App mit Live-Anzeige: du *siehst*, dass nichts rausgeht, statt es zu glauben
-- Notbremse gegen versehentliches Selbst-Aussperren
+## Kompatibilität
 
-### Coulomb
+| | |
+|---|---|
+| System | iOS 18 |
+| Umgebung | rootless (Dopamine, palera1n) |
+| Architektur | arm64, arm64e |
+| Getestet auf | iPhone 11, iOS 18.6.2, Dopamine |
 
-Profilbasiertes Energiemanagement mit Telemetrie und eigener Steuer-App. Der
-Akku hält dadurch nicht ewig, aber du weißt endlich, wer ihn frisst.
+Die Pakete werden auf einem einzigen Gerät entwickelt und getestet. Andere
+Geräte und iOS-Versionen sind nicht geprüft.
 
-## Der weiße Hut
+## Aufbau des Repos
 
-Alles hier dient dazu, das **eigene** Gerät zu verstehen und abzusichern. Kein
-Ausspähen, keine fremden Netze, keine Umgehung von Schutzmaßnahmen anderer
-Leute. Der Quellcode liegt offen — lies ihn, bevor du ihn installierst. Das gilt
-für meine Pakete genauso wie für alle anderen.
+```
+/                       Startseite mit Paketübersicht
+/assets/                gemeinsames Stylesheet und Sprachumschaltung
+/debs/                  die Pakete
+/depictions/<paket>/    Paketseite (HTML, auch für Zebra und Cydia)
+/depictions/<paket>.json  native Sileo-Depiction
+/Packages, /Release     Index für die Paketverwaltung
+```
+
+Der Index wird aus den `.deb`-Dateien erzeugt; Prüfsummen und Depiction-Adressen
+setzt das Erzeugungsskript.
 
 ---
 
 ## English
 
-Small jailbreak tweaks for people who like to watch their phone work. White hat,
-open source, no ads, no account, no “Pro” subscription.
+Jailbreak tweaks for iOS 18. Rootless, open source.
 
-**iOS 18 only** — because I own exactly one test device and it runs iOS 18.
-Anything else would be guesswork, and guessed-at tweaks are why people are
-nervous about jailbreaking in the first place.
+**Source:** `https://fabiangold.github.io/ggtweaks/` (lowercase — GitHub Pages is
+case-sensitive). Add it under Sources in Sileo or Zebra.
 
-Add the source in Sileo or Zebra:
+| Package | Version | Description |
+|---|---|---|
+| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.6.1 | Blocks network traffic as soon as the VPN connection drops |
+| [Coulomb](https://fabiangold.github.io/ggtweaks/depictions/coulomb/) | 0.8.0 | Profile-based power management with telemetry and a control app |
 
-```
-https://fabiangold.github.io/ggtweaks/
-```
-
-Lowercase — GitHub Pages is case-sensitive.
-
-**VPN Kill Switch** — if the VPN drops, everything is sealed off immediately.
-Reacts to kernel events, blocks IPv4 *and* IPv6, keeps an allow-list so the VPN
-app can reconnect, and ships an app with a live traffic view so you can see that
-nothing leaves.
-
-**Coulomb** — profile-based power management with telemetry and its own control
-app.
-
-Everything here exists to understand and secure *your own* device. The source is
-open — read it before you install it.
+Requires iOS 18 on a rootless jailbreak (Dopamine, palera1n), arm64 or arm64e.
+Developed and tested on a single device; other devices and iOS versions are
+unverified.
 
 ---
 
-Gebaut mit [Theos](https://theos.dev) · Läuft nur auf gejailbreakten Geräten.
+Gebaut mit [Theos](https://theos.dev), fake-signiert mit ldid. Läuft
+ausschließlich auf gejailbreakten Geräten.
