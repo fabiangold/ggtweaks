@@ -68,6 +68,14 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
+          "title": "3.11.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Learning VPN servers is far stricter. It used to take four confirmations in as many main-loop rounds — and the daemon is woken by routing events, so those four rounds passed in seconds, right while iOS pins push and iCloud connections to the physical interface. Three of four learned addresses on the test device belonged to Apple, Google and Azure, and each stayed reachable during a block. Now a candidate has to hold for four confirmations at least 30 s apart, spanning 2 minutes, after the tunnel has been up for a minute — and half-finished candidates are discarded when the tunnel cycles.\n- The log is capped at 512 KB; when exceeded, the older half is dropped"
+        },
+        {
+          "class": "DepictionSubheaderView",
           "title": "3.10.0"
         },
         {
