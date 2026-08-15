@@ -12,6 +12,31 @@ Sileo → Quellen → Bearbeiten → **+** → Adresse einfuegen.
 
 ## Pakete
 
+### Coulomb — Adaptive Power
+
+Energiemanagement mit echter Messung statt Schaetzung. Fuer iPhone 11 Pro
+(A13, OLED) gebaut, laeuft auf iOS 15+.
+
+- **Momentanleistung in mW**, nicht in Prozent — gelesen direkt aus
+  `AppleSmartBattery`. Dazu Strom, Spannung, Temperatur, Ladezyklen und
+  Gesundheit aus `NominalChargeCapacity / DesignCapacity`, nicht der
+  gerundete Wert aus den Systemeinstellungen
+- **Stromfresser-Radar:** zeigt ueber `IOPMCopyAssertionsByProcess`
+  namentlich, welcher Prozess das Geraet wachhaelt. Das ist die Ursache von
+  Leerlaufverbrauch — keine geschaetzte Prozentzahl pro App
+- **Prozess-Sperrliste** mit hart kodierter Schutzliste: SpringBoard,
+  backboardd, CommCenter, clockd und Verwandte werden nie beendet.
+  Wecker und Notruf haben Vorrang vor jeder Ersparnis
+- Verlaufskurve der Leistung, Root-Konsole, Kill-Switch-Datei und
+  Crash-Guard gegen Respring-Schleifen
+- Steuerung komplett ueber die mitgelieferte App — PreferenceLoader liefert
+  auf iOS 18.6.2 keine Eintraege mehr aus
+
+**Stand:** Phase 1 von 7 abgeschlossen (API-Verifikation auf dem Geraet).
+Telemetrie-Historie, Profile und Automatik folgen.
+
+**Voraussetzung:** rootless Jailbreak (Dopamine, palera1n) auf iOS 15 oder neuer.
+
 ### VPN Kill Switch
 
 Blockt den gesamten Netzwerkverkehr, sobald die VPN-Verbindung abbricht.
