@@ -11,8 +11,8 @@ Kleinschreibung. In Sileo oder Zebra unter Quellen hinzufügen.
 
 | Paket | Version | Beschreibung |
 |---|---|---|
-| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.7.0 | Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht |
-| [GG Status](https://fabiangold.github.io/ggtweaks/depictions/ggstatus/) | 0.1.0 | Zeigt den Zustand des VPN Kill Switch in der Statusleiste |
+| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.8.0 | Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht |
+| [GG Status](https://fabiangold.github.io/ggtweaks/depictions/ggstatus/) | 0.2.0 | Zeigt den Zustand des VPN Kill Switch in der Statusleiste |
 | [Coulomb](https://fabiangold.github.io/ggtweaks/depictions/coulomb/) | 1.2.0 | Profilbasiertes Energiemanagement mit Telemetrie und Steuer-App |
 
 Ausführliche Beschreibungen stehen auf den jeweiligen Paketseiten.
@@ -54,8 +54,8 @@ case-sensitive). Add it under Sources in Sileo or Zebra.
 
 | Package | Version | Description |
 |---|---|---|
-| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.7.0 | Blocks network traffic as soon as the VPN connection drops |
-| [GG Status](https://fabiangold.github.io/ggtweaks/depictions/ggstatus/) | 0.1.0 | Shows the VPN Kill Switch state in the status bar |
+| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.8.0 | Blocks network traffic as soon as the VPN connection drops |
+| [GG Status](https://fabiangold.github.io/ggtweaks/depictions/ggstatus/) | 0.2.0 | Shows the VPN Kill Switch state in the status bar |
 | [Coulomb](https://fabiangold.github.io/ggtweaks/depictions/coulomb/) | 1.2.0 | Profile-based power management with telemetry and a control app |
 
 Requires iOS 18 on a rootless jailbreak (Dopamine, palera1n), arm64 or arm64e.
