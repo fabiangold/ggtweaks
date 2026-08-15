@@ -7,17 +7,16 @@ Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Icon: file:///var/jb/Library/PreferenceBundles/CoulombPrefs.bundle/icon@3x.png
+Depiction: https://github.com/fabiangold/GGTweaks
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.8.0
-Installed-Size: 1568
-Filename: debs/com.ggtweaks.coulomb_0.8.0_iphoneos-arm64.deb
-Size: 165538
-MD5sum: bafaf8f3f7624c1303f6c5e27be720ab
-SHA1: feb6989523c390a249cc613ca2bb69b2c4290336
-SHA256: 51dca914b96a320032ffd2fe1d2b585566e2f10f42d1c52b87235ad48d92ce8d
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/coulomb/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/coulomb.json
+Version: 0.9.0
+Installed-Size: 2020
+Filename: debs/com.ggtweaks.coulomb_0.9.0_iphoneos-arm64.deb
+Size: 205564
+MD5sum: 8b0b6fc5deddeb843bc190b002bbec28
+SHA1: 6b941f0b44170a26b2f1707746b699d10f8c537a
+SHA256: 648df45c247343ae05a1e4bf698f62af66d41f150fd31288c2382d1b217fbfb0
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
@@ -26,6 +25,8 @@ Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
 Depends: firmware (>= 15.0)
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
@@ -36,5 +37,4 @@ Size: 93976
 MD5sum: b36b339eb898e8cbaad454ff677fb3f6
 SHA1: d1ee19fe053dbb1fbc37257df0545ebe641ae397
 SHA256: a099a656c0862a5d3047880bc01d447365e18004fdea865322910f268502feb7
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
+
