@@ -22,10 +22,10 @@
 <header>
   <h1>GG Status</h1>
   <p class="lead" data-lang="de">
-    Zeigt den Zustand des VPN Kill Switch in der Statusleiste. Version 0.1.0.
+    Zeigt den Zustand des VPN Kill Switch in der Statusleiste. Version 0.3.0.
   </p>
   <p class="lead" data-lang="en">
-    Shows the VPN Kill Switch state in the status bar. Version 0.1.0.
+    Shows the VPN Kill Switch state in the status bar. Version 0.3.0.
   </p>
 </header>
 
@@ -33,7 +33,7 @@
   <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
     <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
   </a>
-  <a class="btn plain" href="../../debs/com.ggtweaks.ggstatus_0.1.0_iphoneos-arm64.deb">
+  <a class="btn plain" href="../../debs/com.ggtweaks.ggstatus_0.3.0_iphoneos-arm64.deb">
     <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
   </a>
 </div>
@@ -53,9 +53,14 @@
       <td data-lang="en">Kill switch is currently blocking</td>
     </tr>
     <tr>
-      <td data-lang="de">Kein Symbol</td><td data-lang="en">No icon</td>
-      <td data-lang="de">Testmodus oder Dienst läuft nicht</td>
-      <td data-lang="en">Test mode, or the daemon is not running</td>
+      <td data-lang="de">Graues Schild</td><td data-lang="en">Grey shield</td>
+      <td data-lang="de">Testmodus, es wird nichts gesperrt</td>
+      <td data-lang="en">Test mode, nothing is blocked</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Blasses Fragezeichen</td><td data-lang="en">Faint question mark</td>
+      <td data-lang="de">kein Zustand — der Dienst meldet sich nicht</td>
+      <td data-lang="en">no state — the daemon is not reporting</td>
     </tr>
   </table>
 </div>
@@ -82,6 +87,32 @@
   <p class="note" data-lang="en">
     A status bar icon can only be drawn from within SpringBoard, hence a separate
     tweak rather than a feature of the app.
+  </p>
+</div>
+
+<h2 data-lang="de">Wenn nichts erscheint</h2>
+<h2 data-lang="en">If nothing appears</h2>
+<div class="card">
+  <p data-lang="de">
+    Der Tweak schreibt mit, was er tut:
+    <code>/var/mobile/Library/Logs/ggstatus.log</code>. Dort steht, ob er in
+    SpringBoard geladen wurde, ob er eine Fensterszene gefunden hat und
+    welchen Zustand er gelesen hat.
+  </p>
+  <p data-lang="en">
+    The tweak logs what it does to
+    <code>/var/mobile/Library/Logs/ggstatus.log</code>: whether it was loaded
+    into SpringBoard, whether it found a window scene, and which state it read.
+  </p>
+  <p class="note" data-lang="de">
+    Ein blasses Fragezeichen heißt: das Fenster steht, nur der Dienst meldet
+    sich nicht. Gar kein Symbol heißt: der Tweak ist nicht so weit gekommen —
+    das Log sagt, wo er stehengeblieben ist.
+  </p>
+  <p class="note" data-lang="en">
+    A faint question mark means the window works and the daemon is silent.
+    Nothing at all means the tweak never got that far — the log says where it
+    stopped.
   </p>
 </div>
 

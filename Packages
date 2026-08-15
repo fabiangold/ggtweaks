@@ -20,7 +20,7 @@ SHA256: 2d0d5e1d7b8b37ab50080f9eda95ea446c8cec29d2c966d47349dc224f3193ef
 
 Package: com.ggtweaks.ggstatus
 Name: GG Status
-Description: Zeigt den Zustand des VPN Kill Switch in der Statusleiste und meldet Netzwerkwechsel.
+Description: Shows the VPN Kill Switch state in the status bar.
 Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
@@ -30,13 +30,13 @@ SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.2.0
+Version: 0.3.0
 Installed-Size: 172
-Filename: debs/com.ggtweaks.ggstatus_0.2.0_iphoneos-arm64.deb
-Size: 6474
-MD5sum: 4b621b2de041bba8e45fd3bf8d7e3e48
-SHA1: 17e5018c490fed0df01dcfd56ba3fd0ea5c2cbe7
-SHA256: 6b92997179b0492c640ba3a9e7fa5a58b9d29cb1359fc3731e0bdb28010e43e7
+Filename: debs/com.ggtweaks.ggstatus_0.3.0_iphoneos-arm64.deb
+Size: 8250
+MD5sum: 7140b988e7543435d48075786b406895
+SHA1: d26d1fc592de958f117fe5753f4dcbf4b38d703f
+SHA256: 184d852139463476d600686e9cf42ebb25ebbda1977ae2b9b0d15693f5ea3fb8
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
