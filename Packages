@@ -10,13 +10,13 @@ Icon: file:///var/jb/Library/PreferenceBundles/CoulombPrefs.bundle/icon@3x.png
 Depiction: https://github.com/fabiangold/GGTweaks
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 1.1.0
-Installed-Size: 2348
-Filename: debs/com.ggtweaks.coulomb_1.1.0_iphoneos-arm64.deb
-Size: 267356
-MD5sum: 918da0e70c9c0b3009e1f16be3788477
-SHA1: e494bdc4e15020ed9066f1dc33df1ca5e937e60f
-SHA256: 9215e03a9e292eacbf9fb234a80d285f66021752b011ef87cc862dee1d3dc634
+Version: 1.2.0
+Installed-Size: 2732
+Filename: debs/com.ggtweaks.coulomb_1.2.0_iphoneos-arm64.deb
+Size: 288846
+MD5sum: 0d5de9bc8d48113fa58d749c20bbda5c
+SHA1: a31f23ebcc41d2d5606bc6f75f4ab93024e1bb0b
+SHA256: 074cb5d6b6f76094c4073896eb306730a77d0803b6cb9bc61b5632cbb634508f
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
