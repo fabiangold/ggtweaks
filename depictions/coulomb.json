@@ -1,0 +1,39 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://fabiangold.github.io/ggtweaks/icon.png",
+  "tintColor": "#F5A623",
+  "tabs": [
+    {
+      "tabname": "Überblick",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionSubheaderView", "title": "Wer frisst hier den Akku?" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Profilbasiertes Energiemanagement für den A13. Statt pauschal alles zu drosseln, schaltet Coulomb je nach Lage zwischen Profilen um – und zeigt dir per Telemetrie, was das bringt.\n\nDer Akku hält dadurch nicht ewig. Aber du weißt endlich, wohin er geht." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Enthalten" },
+        { "class": "DepictionTableTextView", "title": "App", "text": "Coulomb auf dem Homescreen" },
+        { "class": "DepictionTableTextView", "title": "Einstellungen", "text": "eigener Bereich in den iOS-Einstellungen" },
+        { "class": "DepictionTableTextView", "title": "Tweak", "text": "läuft im Hintergrund mit" },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Neu in 0.8.0" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "- Automatischer Energiesparmodus\n- Verlauf über die Zeit\n- Verbessertes Layout" }
+      ]
+    },
+    {
+      "tabname": "Voraussetzungen",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
+        { "class": "DepictionTableTextView", "title": "Gerät", "text": "auf A13 ausgelegt (iPhone 11)" },
+        { "class": "DepictionTableTextView", "title": "Benötigt", "text": "ellekit, preferenceloader" },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Beide Abhängigkeiten installiert Sileo automatisch mit. Fehlt **preferenceloader**, taucht der Einstellungsbereich nicht auf – der Tweak läuft trotzdem." },
+        { "class": "DepictionTableButtonView", "title": "Quellcode auf GitHub",
+          "action": "https://github.com/fabiangold/ggtweaks", "openExternal": true }
+      ]
+    }
+  ]
+}

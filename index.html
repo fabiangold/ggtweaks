@@ -45,6 +45,12 @@
     margin:2px 4px 2px 0;
   }
   .note { color:var(--dim); font-size:.9rem; }
+  .btns { display:flex; gap:10px; flex-wrap:wrap; }
+  .btn { flex:1 1 160px; text-align:center; text-decoration:none; padding:13px 16px;
+         border-radius:12px; font-weight:600; border:1px solid var(--line); }
+  .btn.sileo { background:var(--accent); color:#08130c; border-color:transparent; }
+  .btn.zebra { background:#0b1017; color:var(--fg); }
+  @media (prefers-color-scheme: light) { .btn.zebra { background:#eef1f5; } }
   footer { text-align:center; color:var(--dim); font-size:.85rem; padding-top:28px; }
   a { color:var(--accent); }
   @media (prefers-color-scheme: light) {
@@ -69,12 +75,16 @@
 </header>
 
 <div class="card">
-  <h2>In Sileo hinzufügen</h2>
-  <span class="url">https://fabiangold.github.io/ggtweaks/</span>
-  <p class="note">
-    Sileo → Quellen → Bearbeiten → <strong>+</strong> → Adresse einfügen.
-    Klein geschrieben, sonst schmollt der Server.
+  <h2>Quelle hinzufügen</h2>
+  <div class="btns">
+    <a class="btn sileo" href="sileo://source/https://fabiangold.github.io/ggtweaks/">Zu Sileo</a>
+    <a class="btn zebra" href="zbra://sources/add/https://fabiangold.github.io/ggtweaks/">Zu Zebra</a>
+  </div>
+  <p class="note" style="margin-top:14px">
+    Die Knöpfe funktionieren nur auf dem iPhone selbst. Sonst von Hand eintragen:
   </p>
+  <span class="url">https://fabiangold.github.io/ggtweaks/</span>
+  <p class="note">Klein geschrieben, sonst schmollt der Server.</p>
 </div>
 
 <div class="card">

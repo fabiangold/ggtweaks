@@ -1,0 +1,76 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://fabiangold.github.io/ggtweaks/icon.png",
+  "tintColor": "#2ECC71",
+  "tabs": [
+    {
+      "tabname": "Überblick",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionSubheaderView", "title": "Kein VPN, kein Internet." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Bricht die VPN-Verbindung ab, macht dieser Tweak in derselben Sekunde dicht. Ohne ihn läuft dein Verkehr klammheimlich am Tunnel vorbei weiter – oft ohne dass du es merkst, weil das Telefon einfach online bleibt." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Was es besser macht" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Reagiert sofort, nicht im Sekundentakt.**\nDer Daemon hängt am Routing-Socket des Kernels und bekommt den Abriss als Ereignis gemeldet, statt alle paar Sekunden nachzusehen." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Blockt auch IPv6.**\nIm Mobilfunk läuft heute der Großteil über IPv6. Ein Kill Switch, der nur IPv4 sperrt, ist ein Sieb mit Zertifikat." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Du siehst, dass nichts rausgeht.**\nDie App zeigt den Datenverkehr pro Schnittstelle live an, getrennt nach ein- und ausgehend. Leckt bei aktivem Block etwas, färbt sich die Zeile rot und zählt mit." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Deine VPN-App kommt trotzdem zurück.**\nDer VPN-Server bleibt über eine Ausnahmeliste erreichbar. Der Daemon merkt sich Serveradressen selbst, sobald er sie mehrfach bestätigt gesehen hat." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Voraussetzungen" },
+        { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
+        { "class": "DepictionTableTextView", "title": "Jailbreak", "text": "Dopamine, palera1n" },
+        { "class": "DepictionTableTextView", "title": "Architektur", "text": "arm64 und arm64e" },
+        { "class": "DepictionTableTextView", "title": "VPN", "text": "beliebig – getestet mit Mullvad" }
+      ]
+    },
+    {
+      "tabname": "Bedienung",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionSubheaderView", "title": "Nach der Installation" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Der Tweak startet im **Testmodus** und blockt zunächst gar nichts. Absicht: erst prüfen, ob die Erkennung auf deinem Gerät stimmt, dann scharf schalten. So kannst du dich beim Ausprobieren nicht aussperren." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "1. App **Kill Switch** öffnen\n2. VPN verbinden, dann **Endpoint lernen**\n3. **Scharf schalten**\n4. VPN trennen – das Netz muss sofort tot sein" },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Die App" },
+        { "class": "DepictionTableTextView", "title": "Stethoskop", "text": "Installationstest mit Beobachtung" },
+        { "class": "DepictionTableTextView", "title": "Herzschlag", "text": "Datenverkehr live pro Schnittstelle" },
+        { "class": "DepictionTableTextView", "title": "Zahnrad", "text": "Regeln, Sperrliste, Verhalten" },
+        { "class": "DepictionTableTextView", "title": "Lupe", "text": "Diagnosebericht zum Teilen" },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Pause" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Willst du den Server wechseln oder absichtlich trennen, drück **Pause**. Der Schutz ruht und greift von selbst wieder, sobald der Tunnel steht." },
+        { "class": "DepictionSubheaderView", "title": "Eigene Sperrregeln" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Unter *Immer sperren* trägst du Ziele ein, die nie erreichbar sein sollen – einzelne Adressen oder ganze Bereiche wie `17.0.0.0/8`.\n\nDas gilt **pro Ziel-Adresse, nicht pro App**. Ein Dienst mit wechselnder Adresse entwischt." }
+      ]
+    },
+    {
+      "tabname": "Ehrlich",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionSubheaderView", "title": "Was du wissen solltest" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Blockieren heißt blockieren.** Ist der Schutz aktiv und kein VPN da, meldet iOS „kein Internet\" und schaltet unter Umständen auf Mobilfunk um. Dort wird ebenfalls blockiert. Kein Fehler, sondern der Zweck." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Eingehende Pakete lassen sich nicht verhindern.** Routen steuern nur den Ausgang. Dass eine Schnittstelle noch empfängt, ist unbedenklich: Antworten kämen nicht raus." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Manche VPN-Apps mögen das nicht.** Solange geblockt wird, hält iOS das Gerät für offline, und manche Apps versuchen dann gar keinen Aufbau. Dafür gibt es Pause und ein automatisches Verbindungsfenster." },
+        { "class": "DepictionMarkdownView",
+          "markdown": "**Aussperren geht nicht dauerhaft.** Hängt ein Block länger als zehn Minuten, gibt der Daemon von selbst frei. Sonst hilft immer: Flugmodus an und aus." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Getestet auf iPhone 11 mit iOS 18.6.2 und Dopamine. Andere Geräte laufen vielleicht – versprochen ist es nicht. Der Quellcode liegt offen." },
+        { "class": "DepictionTableButtonView", "title": "Quellcode auf GitHub",
+          "action": "https://github.com/fabiangold/ggtweaks", "openExternal": true }
+      ]
+    }
+  ]
+}
