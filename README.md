@@ -5,7 +5,7 @@ Jailbreak-Repo fuer iOS 15+ (rootless, `iphoneos-arm64`).
 ## In Sileo hinzufuegen
 
 ```
-https://fabiangold.github.io/GGTweaks/
+https://fabiangold.github.io/ggtweaks/
 ```
 
 Sileo → Quellen → Bearbeiten → **+** → Adresse einfuegen.
