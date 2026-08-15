@@ -68,7 +68,7 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
-          "title": "3.9.1"
+          "title": "3.9.2"
         },
         {
           "class": "DepictionMarkdownView",

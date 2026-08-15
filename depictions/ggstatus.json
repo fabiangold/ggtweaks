@@ -11,22 +11,54 @@
           "class": "DepictionMarkdownView",
           "markdown": "Shows the state of the VPN Kill Switch in the status bar. The daemon reports every change, so the symbol follows within a moment."
         },
-        { "class": "DepictionSeparatorView" },
-        { "class": "DepictionSubheaderView", "title": "The symbol" },
-        { "class": "DepictionTableTextView", "title": "Green shield", "text": "armed, VPN up" },
-        { "class": "DepictionTableTextView", "title": "Red shield", "text": "blocking right now" },
-        { "class": "DepictionTableTextView", "title": "Grey shield", "text": "test mode, nothing is blocked" },
-        { "class": "DepictionTableTextView", "title": "Faint question mark", "text": "no state - the daemon is not reporting" },
-        { "class": "DepictionSeparatorView" },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "The symbol"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Green shield",
+          "text": "armed, VPN up"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Red shield",
+          "text": "blocking right now"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Grey shield",
+          "text": "test mode, nothing is blocked"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Faint question mark",
+          "text": "no state - the daemon is not reporting"
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
         {
           "class": "DepictionMarkdownView",
           "markdown": "The tweak draws its own window above the status bar rather than hooking a private status bar class. That keeps it independent of how Apple rearranges the status bar internally, and it never intercepts touches — the control centre still pulls down over it."
         },
-        { "class": "DepictionSeparatorView" },
-        { "class": "DepictionSubheaderView", "title": "If nothing appears" },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "If nothing appears"
+        },
         {
           "class": "DepictionMarkdownView",
           "markdown": "The tweak writes what it does to `/var/mobile/Library/Logs/ggstatus.log`. It records whether it was loaded into SpringBoard, whether it found a window scene, and which state it read.\n\nA faint question mark means the window works and the daemon is silent. Nothing at all means the tweak never got that far — the log says where it stopped."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "The symbol sits to the left of the clock. If it collides with something on your device, move it without rebuilding — create `/var/jb/etc/ggstatus.conf` with lines like `X=120`, `Y=14`, `SIZE=20` and respring."
         }
       ]
     },
@@ -34,12 +66,26 @@
       "tabname": "Changes",
       "class": "DepictionStackView",
       "views": [
-        { "class": "DepictionSubheaderView", "title": "0.3.0" },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "0.4.0"
+        },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- The window now has a root view controller. Without one UIKit does not reliably draw a window on recent systems — the most likely reason 0.2.0 stayed invisible.\n- The unknown state shows a faint symbol instead of hiding, so a missing state can be told apart from a missing window\n- Writes a log to `/var/mobile/Library/Logs/ggstatus.log`\n- Falls back to any window scene when none is foreground-active"
+          "markdown": "- Moved out from under the battery icon: 0.3.0 sat 6 pt from the right edge, which is exactly where the battery indicator is — the window was there, nothing was visible\n- Position and size adjustable via `/var/jb/etc/ggstatus.conf` (`X=`, `Y=`, `SIZE=`) without rebuilding"
         },
-        { "class": "DepictionSubheaderView", "title": "0.2.0" },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "0.3.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- The window now has a root view controller. Without one UIKit does not reliably draw a window on recent systems\n- The unknown state shows a faint symbol instead of hiding, so a missing state can be told apart from a missing window\n- Writes a log to `/var/mobile/Library/Logs/ggstatus.log`\n- Falls back to any window scene when none is foreground-active"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "0.2.0"
+        },
         {
           "class": "DepictionMarkdownView",
           "markdown": "- Own window above the status bar instead of hooking `_UIStatusBar`, which showed nothing on iOS 18"
@@ -50,11 +96,29 @@
       "tabname": "System",
       "class": "DepictionStackView",
       "views": [
-        { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
-        { "class": "DepictionTableTextView", "title": "Architecture", "text": "arm64, arm64e" },
-        { "class": "DepictionTableTextView", "title": "Dependencies", "text": "ellekit" },
-        { "class": "DepictionTableTextView", "title": "Goes with", "text": "VPN Kill Switch" },
-        { "class": "DepictionSeparatorView" },
+        {
+          "class": "DepictionTableTextView",
+          "title": "System",
+          "text": "iOS 18, rootless"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Architecture",
+          "text": "arm64, arm64e"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Dependencies",
+          "text": "ellekit"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Goes with",
+          "text": "VPN Kill Switch"
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
         {
           "class": "DepictionMarkdownView",
           "markdown": "Without the VPN Kill Switch installed there is no state to show. A respring is needed after installing."
