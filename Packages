@@ -7,7 +7,6 @@ Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Icon: file:///var/jb/Library/PreferenceBundles/CoulombPrefs.bundle/icon@3x.png
-Depiction: https://github.com/fabiangold/GGTweaks
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
 Version: 1.2.0
@@ -17,6 +16,28 @@ Size: 288846
 MD5sum: 0d5de9bc8d48113fa58d749c20bbda5c
 SHA1: a31f23ebcc41d2d5606bc6f75f4ab93024e1bb0b
 SHA256: 074cb5d6b6f76094c4073896eb306730a77d0803b6cb9bc61b5632cbb634508f
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/coulomb/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/coulomb.json
+
+Package: com.ggtweaks.ggstatus
+Name: GG Status
+Description: Zeigt den Zustand des VPN Kill Switch in der Statusleiste und meldet Netzwerkwechsel.
+Maintainer: GGTweaks
+Author: GGTweaks
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit
+Icon: https://fabiangold.github.io/ggtweaks/icon.png
+Tag: compatible::ios18
+Architecture: iphoneos-arm64
+Version: 0.1.0
+Installed-Size: 168
+Filename: debs/com.ggtweaks.ggstatus_0.1.0_iphoneos-arm64.deb
+Size: 6290
+MD5sum: 450c28cf7c58d23f0e1b25ae560d8e33
+SHA1: b6015043cd66d7a4506106b8f33fca8f27c5c963
+SHA256: 364ad14e001c3c24aa399ab750bcd7c3e8bba834881f94e73c754aefcb62178f
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus.json
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
@@ -25,16 +46,15 @@ Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
 Depends: firmware (>= 15.0)
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 3.6.1
+Version: 3.7.0
 Installed-Size: 688
-Filename: debs/com.ggtweaks.vpnkillswitch_3.6.1_iphoneos-arm64.deb
-Size: 93976
-MD5sum: b36b339eb898e8cbaad454ff677fb3f6
-SHA1: d1ee19fe053dbb1fbc37257df0545ebe641ae397
-SHA256: a099a656c0862a5d3047880bc01d447365e18004fdea865322910f268502feb7
-
+Filename: debs/com.ggtweaks.vpnkillswitch_3.7.0_iphoneos-arm64.deb
+Size: 93572
+MD5sum: cdd571c55809bd10a5a851d81174c5fd
+SHA1: 896aade89f4e7a78d6ff857307fd7a51a2ddd1a8
+SHA256: 583997a4df9757caeb49fe692bd62e46fc10c1d7086a22d62533b31d91ff27a8
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json

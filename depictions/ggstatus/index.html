@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GG Status — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>GG Status</h1>
+  <p class="lead" data-lang="de">
+    Zeigt den Zustand des VPN Kill Switch in der Statusleiste. Version 0.1.0.
+  </p>
+  <p class="lead" data-lang="en">
+    Shows the VPN Kill Switch state in the status bar. Version 0.1.0.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.ggstatus_0.1.0_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Anzeige</h2>
+<h2 data-lang="en">Indicator</h2>
+<div class="card">
+  <table>
+    <tr>
+      <td data-lang="de">Grünes Schild</td><td data-lang="en">Green shield</td>
+      <td data-lang="de">Kill Switch scharf, VPN aktiv</td>
+      <td data-lang="en">Kill switch armed, VPN active</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Rotes Schild</td><td data-lang="en">Red shield</td>
+      <td data-lang="de">Kill Switch blockiert gerade</td>
+      <td data-lang="en">Kill switch is currently blocking</td>
+    </tr>
+    <tr>
+      <td data-lang="de">Kein Symbol</td><td data-lang="en">No icon</td>
+      <td data-lang="de">Testmodus oder Dienst läuft nicht</td>
+      <td data-lang="en">Test mode, or the daemon is not running</td>
+    </tr>
+  </table>
+</div>
+
+<h2 data-lang="de">Funktionsweise</h2>
+<h2 data-lang="en">How it works</h2>
+<div class="card">
+  <p data-lang="de">
+    Der Kill-Switch-Dienst schreibt seinen Zustand in eine Statusdatei und meldet
+    jede Änderung über eine Systemkennung. Dieser Tweak läuft in SpringBoard,
+    horcht auf diese Meldung und blendet das Symbol ein. Ein langsamer
+    Sicherheitstakt fängt ab, falls eine Meldung verlorengeht.
+  </p>
+  <p data-lang="en">
+    The kill switch daemon writes its state to a status file and posts a system
+    notification on every change. This tweak runs inside SpringBoard, listens for
+    that notification and shows the icon. A slow fallback timer covers the case
+    of a missed notification.
+  </p>
+  <p class="note" data-lang="de">
+    Ein Symbol in der Statusleiste lässt sich nur aus SpringBoard heraus
+    anzeigen — deshalb ein eigener Tweak statt einer Funktion der App.
+  </p>
+  <p class="note" data-lang="en">
+    A status bar icon can only be drawn from within SpringBoard, hence a separate
+    tweak rather than a feature of the app.
+  </p>
+</div>
+
+<h2 data-lang="de">Voraussetzungen</h2>
+<h2 data-lang="en">Requirements</h2>
+<div class="card">
+  <table>
+    <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
+    <tr><td data-lang="de">Benötigt</td><td data-lang="en">Requires</td><td>ellekit</td></tr>
+    <tr>
+      <td data-lang="de">Ergänzt</td><td data-lang="en">Complements</td>
+      <td><a href="../vpnkillswitch/">VPN Kill Switch</a> 3.7.0+</td>
+    </tr>
+  </table>
+  <p class="note" data-lang="de">
+    Nach der Installation SpringBoard neu starten, damit das Symbol erscheint.
+  </p>
+  <p class="note" data-lang="en">
+    Restart SpringBoard after installing so the icon appears.
+  </p>
+</div>
+
+<footer>
+  <p data-lang="de">Paket <code>com.ggtweaks.ggstatus</code> · <a href="https://github.com/fabiangold/ggtweaks">Quellcode</a></p>
+  <p data-lang="en">Package <code>com.ggtweaks.ggstatus</code> · <a href="https://github.com/fabiangold/ggtweaks">Source</a></p>
+</footer>
+
+</div>
+</body>
+</html>

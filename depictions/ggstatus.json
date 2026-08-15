@@ -1,0 +1,37 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://fabiangold.github.io/ggtweaks/icon.png",
+  "tintColor": "#2ECC71",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionMarkdownView",
+          "markdown": "Zeigt den Zustand des VPN Kill Switch in der Statusleiste." },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Anzeige" },
+        { "class": "DepictionTableTextView", "title": "Grünes Schild", "text": "scharf, VPN aktiv" },
+        { "class": "DepictionTableTextView", "title": "Rotes Schild", "text": "blockiert gerade" },
+        { "class": "DepictionTableTextView", "title": "Kein Symbol", "text": "Testmodus oder Dienst läuft nicht" },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionMarkdownView",
+          "markdown": "Der Kill-Switch-Dienst meldet jede Änderung über eine Systemkennung; dieser Tweak läuft in SpringBoard und horcht darauf. Ein Symbol in der Statusleiste lässt sich nur von dort anzeigen – deshalb ein eigener Tweak.\n\nNach der Installation SpringBoard neu starten." },
+        { "class": "DepictionTableButtonView", "title": "Ausführliche Beschreibung",
+          "action": "https://fabiangold.github.io/ggtweaks/depictions/ggstatus/",
+          "openExternal": true }
+      ]
+    },
+    {
+      "tabname": "System",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
+        { "class": "DepictionTableTextView", "title": "Benötigt", "text": "ellekit" },
+        { "class": "DepictionTableTextView", "title": "Ergänzt", "text": "VPN Kill Switch 3.7.0+" },
+        { "class": "DepictionTableButtonView", "title": "Quellcode",
+          "action": "https://github.com/fabiangold/ggtweaks", "openExternal": true }
+      ]
+    }
+  ]
+}
