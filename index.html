@@ -18,7 +18,20 @@
     background:var(--bg); color:var(--fg);
   }
   .wrap { max-width:720px; margin:0 auto; }
-  header { text-align:center; padding:56px 0 32px; }
+
+  /* Sprachumschalter */
+  .langbar { display:flex; justify-content:flex-end; padding-top:16px; }
+  .langtoggle {
+    display:inline-flex; border:1px solid var(--line); border-radius:999px;
+    overflow:hidden; background:var(--card);
+  }
+  .langtoggle button {
+    appearance:none; border:0; background:transparent; color:var(--dim);
+    font:600 13px/1 inherit; padding:9px 15px; cursor:pointer;
+  }
+  .langtoggle button[aria-pressed="true"] { background:var(--accent); color:#08130c; }
+
+  header { text-align:center; padding:28px 0 32px; }
   header img { width:112px; height:112px; border-radius:26px; }
   h1 { font-size:2.1rem; margin:18px 0 6px; letter-spacing:-.02em; }
   .claim { color:var(--accent); font-weight:600; margin:0 0 10px; }
@@ -29,9 +42,7 @@
   }
   h2 { font-size:1.15rem; margin:0 0 10px; }
   h3 { font-size:1rem; margin:20px 0 4px; }
-  code, .url {
-    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.92rem;
-  }
+  code, .url { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.92rem; }
   .url {
     display:block; background:#0b1017; border:1px solid var(--line);
     border-radius:10px; padding:13px 15px; margin:12px 0 4px;
@@ -46,108 +57,205 @@
   }
   .note { color:var(--dim); font-size:.9rem; }
   .btns { display:flex; gap:10px; flex-wrap:wrap; }
-  .btn { flex:1 1 160px; text-align:center; text-decoration:none; padding:13px 16px;
-         border-radius:12px; font-weight:600; border:1px solid var(--line); }
+  .btn {
+    flex:1 1 160px; text-align:center; text-decoration:none; padding:13px 16px;
+    border-radius:12px; font-weight:600; border:1px solid var(--line);
+  }
   .btn.sileo { background:var(--accent); color:#08130c; border-color:transparent; }
   .btn.zebra { background:#0b1017; color:var(--fg); }
-  @media (prefers-color-scheme: light) { .btn.zebra { background:#eef1f5; } }
   footer { text-align:center; color:var(--dim); font-size:.85rem; padding-top:28px; }
   a { color:var(--accent); }
+
+  /* Nur die aktive Sprache anzeigen. Ohne JavaScript bleibt Deutsch stehen. */
+  html[lang="de"] [data-lang="en"], html[lang="en"] [data-lang="de"] { display:none; }
+
   @media (prefers-color-scheme: light) {
     :root { --bg:#f5f7fa; --card:#fff; --line:#dfe5ec; --fg:#16202b; --dim:#5d6b7a; }
-    .url { background:#f0f3f7; }
-    .tag { background:#f0f3f7; }
+    .url, .tag, .btn.zebra { background:#f0f3f7; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
+<div class="langbar">
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
 <header>
   <img src="icon.png" alt="Weißer Hut über einem Terminal-Cursor">
   <h1>GGTweaks</h1>
-  <p class="claim">Nur iOS 18. Sonst nichts.</p>
-  <p class="sub">
+  <p class="claim" data-lang="de">Nur iOS 18. Sonst nichts.</p>
+  <p class="claim" data-lang="en">iOS 18 only. Nothing else.</p>
+  <p class="sub" data-lang="de">
     Kleine Tweaks für Leute, die ihrem Telefon beim Arbeiten über die Schulter
     schauen wollen. Weißer Hut, offener Quellcode, keine Werbung, kein Konto,
-    kein „Pro"-Abo.
+    kein „Pro“-Abo.
+  </p>
+  <p class="sub" data-lang="en">
+    Small tweaks for people who like to watch their phone work. White hat, open
+    source, no ads, no account, no “Pro” subscription.
   </p>
 </header>
 
 <div class="card">
-  <h2>Quelle hinzufügen</h2>
+  <h2 data-lang="de">Quelle hinzufügen</h2>
+  <h2 data-lang="en">Add the source</h2>
   <div class="btns">
-    <a class="btn sileo" href="sileo://source/https://fabiangold.github.io/ggtweaks/">Zu Sileo</a>
-    <a class="btn zebra" href="zbra://sources/add/https://fabiangold.github.io/ggtweaks/">Zu Zebra</a>
+    <a class="btn sileo" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+      <span data-lang="de">Zu Sileo</span><span data-lang="en">Add to Sileo</span>
+    </a>
+    <a class="btn zebra" href="zbra://sources/add/https://fabiangold.github.io/ggtweaks/">
+      <span data-lang="de">Zu Zebra</span><span data-lang="en">Add to Zebra</span>
+    </a>
   </div>
-  <p class="note" style="margin-top:14px">
+  <p class="note" data-lang="de" style="margin-top:14px">
     Die Knöpfe funktionieren nur auf dem iPhone selbst. Sonst von Hand eintragen:
   </p>
+  <p class="note" data-lang="en" style="margin-top:14px">
+    The buttons only work on the iPhone itself. Otherwise add it by hand:
+  </p>
   <span class="url">https://fabiangold.github.io/ggtweaks/</span>
-  <p class="note">Klein geschrieben, sonst schmollt der Server.</p>
+  <p class="note" data-lang="de">
+    Alles klein geschrieben — GitHub Pages unterscheidet Groß- und
+    Kleinschreibung, mit großen Buchstaben gibt es einen 404er.
+  </p>
+  <p class="note" data-lang="en">
+    All lowercase — GitHub Pages is case-sensitive, and the capitalised version
+    returns a 404.
+  </p>
 </div>
 
 <div class="card">
-  <h2>Warum nur iOS 18?</h2>
-  <p>
-    Weil ich genau ein Testgerät habe und das läuft auf iOS 18. Alles andere
-    wäre geraten, und geratene Tweaks sind der Grund, warum Leute
-    Angst vor Jailbreaks haben.
+  <h2 data-lang="de">Warum nur iOS 18?</h2>
+  <h2 data-lang="en">Why iOS 18 only?</h2>
+  <p data-lang="de">
+    Weil ich genau ein Testgerät habe, und das läuft auf iOS 18. Alles andere
+    wäre geraten, und geratene Tweaks sind der Grund, warum Leute Angst vor
+    Jailbreaks haben.
   </p>
-  <p class="note">
-    Gebaut und getestet auf iPhone 11 mit Dopamine (rootless). Ältere
-    Versionen laufen vielleicht. Vielleicht auch nicht. Sicherungskopie hilft.
+  <p data-lang="en">
+    Because I own exactly one test device, and it runs iOS 18. Anything else
+    would be guesswork — and guessed-at tweaks are why people are nervous about
+    jailbreaking in the first place.
+  </p>
+  <p class="note" data-lang="de">
+    Gebaut und getestet auf einem iPhone 11 mit Dopamine (rootless). Ältere
+    Versionen laufen vielleicht. Vielleicht auch nicht. Eine Sicherung hilft.
+  </p>
+  <p class="note" data-lang="en">
+    Built and tested on an iPhone 11 running Dopamine (rootless). Older versions
+    might work. Or might not. A backup helps.
   </p>
   <div>
     <span class="tag">iOS 18</span>
     <span class="tag">rootless</span>
     <span class="tag">arm64 · arm64e</span>
-    <span class="tag">quelloffen</span>
+    <span class="tag" data-lang="de">quelloffen</span>
+    <span class="tag" data-lang="en">open source</span>
   </div>
 </div>
 
 <div class="card">
-  <h2>Pakete</h2>
+  <h2 data-lang="de">Pakete</h2>
+  <h2 data-lang="en">Packages</h2>
 
   <h3>VPN Kill Switch</h3>
-  <p>
+  <p data-lang="de">
     Reißt die VPN-Verbindung ab, macht dieser Tweak sofort dicht — statt dass
     dein Datenverkehr klammheimlich am Tunnel vorbeispaziert.
   </p>
-  <ul>
-    <li>Reagiert über Kernel-Ereignisse, nicht durch Nachschauen im Sekundentakt</li>
-    <li>Blockt IPv4 <em>und</em> IPv6 — im Mobilfunk läuft das meiste über IPv6,
-        ein reiner IPv4-Block ist ein Sieb mit Zertifikat</li>
+  <p data-lang="en">
+    If the VPN drops, this tweak seals everything off immediately — instead of
+    letting your traffic quietly stroll past the tunnel.
+  </p>
+  <ul data-lang="de">
+    <li>Reagiert auf Kernel-Ereignisse, statt im Sekundentakt nachzusehen</li>
+    <li>Blockiert IPv4 <em>und</em> IPv6 — im Mobilfunk läuft das meiste über
+        IPv6, ein reiner IPv4-Block ist ein Sieb mit Zertifikat</li>
     <li>Ausnahmeliste, damit die VPN-App sich neu verbinden kann</li>
-    <li>Eigene Sperrliste mit ganzen Bereichen, etwa <code>17.0.0.0/8</code></li>
-    <li>App mit Live-Verkehrsanzeige: du <em>siehst</em>, dass nichts rausgeht,
-        statt es zu glauben</li>
+    <li>Eigene Sperrliste, auch für ganze Bereiche wie <code>17.0.0.0/8</code></li>
+    <li>App mit Live-Anzeige: du <em>siehst</em>, dass nichts rausgeht, statt es
+        zu glauben</li>
     <li>Notbremse gegen versehentliches Selbst-Aussperren</li>
+  </ul>
+  <ul data-lang="en">
+    <li>Reacts to kernel events instead of polling every few seconds</li>
+    <li>Blocks IPv4 <em>and</em> IPv6 — on cellular most traffic is IPv6, so an
+        IPv4-only kill switch is a sieve with a certificate</li>
+    <li>Allow-list so the VPN app can reconnect</li>
+    <li>Your own block list, including whole ranges like <code>17.0.0.0/8</code></li>
+    <li>App with a live traffic view: you <em>see</em> that nothing leaves,
+        instead of taking my word for it</li>
+    <li>Emergency release so you cannot lock yourself out</li>
   </ul>
 
   <h3>Coulomb</h3>
-  <p>
+  <p data-lang="de">
     Profilbasiertes Energiemanagement mit Telemetrie und eigener Steuer-App.
     Der Akku hält dadurch nicht ewig, aber du weißt endlich, wer ihn frisst.
+  </p>
+  <p data-lang="en">
+    Profile-based power management with telemetry and its own control app. It
+    will not make the battery last forever, but you will finally know what is
+    eating it.
   </p>
 </div>
 
 <div class="card">
-  <h2>Der weiße Hut</h2>
-  <p>
-    Alles hier ist dafür da, das <em>eigene</em> Gerät zu verstehen und
+  <h2 data-lang="de">Der weiße Hut</h2>
+  <h2 data-lang="en">The white hat</h2>
+  <p data-lang="de">
+    Alles hier dient dazu, das <em>eigene</em> Gerät zu verstehen und
     abzusichern. Kein Ausspähen, keine fremden Netze, keine Umgehung von
     Schutzmaßnahmen anderer Leute. Der Quellcode liegt offen — lies ihn, bevor
     du ihn installierst. Das gilt für meine Pakete genauso wie für alle anderen.
   </p>
+  <p data-lang="en">
+    Everything here exists to understand and secure <em>your own</em> device. No
+    snooping, no foreign networks, no working around anyone else's protections.
+    The source is open — read it before you install it. That goes for my
+    packages just as much as for anyone else's.
+  </p>
 </div>
 
 <footer>
-  <a href="https://github.com/fabiangold/ggtweaks">Quellcode auf GitHub</a>
-  &nbsp;·&nbsp; Gebaut mit <a href="https://theos.dev">Theos</a>
-  <br>Läuft nur auf gejailbreakten Geräten. Logisch.
+  <a href="https://github.com/fabiangold/ggtweaks"><span data-lang="de">Quellcode auf GitHub</span><span data-lang="en">Source on GitHub</span></a>
+  &nbsp;·&nbsp;
+  <span data-lang="de">Gebaut mit</span><span data-lang="en">Built with</span>
+  <a href="https://theos.dev">Theos</a><br>
+  <span data-lang="de">Läuft nur auf gejailbreakten Geräten. Logisch.</span>
+  <span data-lang="en">Only runs on jailbroken devices. Obviously.</span>
 </footer>
 
 </div>
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var btns = { de: document.getElementById('btn-de'), en: document.getElementById('btn-en') };
+
+  function apply(lang) {
+    html.setAttribute('lang', lang);
+    btns.de.setAttribute('aria-pressed', String(lang === 'de'));
+    btns.en.setAttribute('aria-pressed', String(lang === 'en'));
+    try { localStorage.setItem('ggtweaks-lang', lang); } catch (e) {}
+  }
+
+  // Gespeicherte Wahl geht vor, sonst die Browsersprache, sonst Deutsch.
+  var saved = null;
+  try { saved = localStorage.getItem('ggtweaks-lang'); } catch (e) {}
+  if (saved !== 'de' && saved !== 'en') {
+    saved = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+  }
+  apply(saved);
+
+  btns.de.addEventListener('click', function () { apply('de'); });
+  btns.en.addEventListener('click', function () { apply('en'); });
+})();
+</script>
 </body>
 </html>

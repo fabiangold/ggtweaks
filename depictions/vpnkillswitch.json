@@ -58,7 +58,7 @@
       "views": [
         { "class": "DepictionSubheaderView", "title": "Was du wissen solltest" },
         { "class": "DepictionMarkdownView",
-          "markdown": "**Blockieren heißt blockieren.** Ist der Schutz aktiv und kein VPN da, meldet iOS „kein Internet\" und schaltet unter Umständen auf Mobilfunk um. Dort wird ebenfalls blockiert. Kein Fehler, sondern der Zweck." },
+          "markdown": "**Blockieren heißt blockieren.** Ist der Schutz aktiv und kein VPN da, meldet iOS „kein Internet“ und schaltet unter Umständen auf Mobilfunk um. Dort wird ebenfalls blockiert. Kein Fehler, sondern der Zweck." },
         { "class": "DepictionMarkdownView",
           "markdown": "**Eingehende Pakete lassen sich nicht verhindern.** Routen steuern nur den Ausgang. Dass eine Schnittstelle noch empfängt, ist unbedenklich: Antworten kämen nicht raus." },
         { "class": "DepictionMarkdownView",
