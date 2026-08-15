@@ -10,6 +10,10 @@ https://fabiangold.github.io/ggtweaks/
 
 Sileo → Quellen → Bearbeiten → **+** → Adresse einfuegen.
 
+Achtung: klein geschrieben. GitHub Pages liefert nur unter
+`fabiangold.github.io/ggtweaks/` aus, die Variante mit Grossbuchstaben
+gibt 404.
+
 ## Pakete
 
 ### Coulomb — Adaptive Power
