@@ -7,17 +7,16 @@ Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit, preferenceloader
 Icon: file:///var/jb/Library/PreferenceBundles/CoulombPrefs.bundle/icon@3x.png
+Depiction: https://github.com/fabiangold/GGTweaks
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 1.2.0
-Installed-Size: 2732
-Filename: debs/com.ggtweaks.coulomb_1.2.0_iphoneos-arm64.deb
-Size: 288846
-MD5sum: 0d5de9bc8d48113fa58d749c20bbda5c
-SHA1: a31f23ebcc41d2d5606bc6f75f4ab93024e1bb0b
-SHA256: 074cb5d6b6f76094c4073896eb306730a77d0803b6cb9bc61b5632cbb634508f
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/coulomb/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/coulomb.json
+Version: 1.2.1
+Installed-Size: 2736
+Filename: debs/com.ggtweaks.coulomb_1.2.1_iphoneos-arm64.deb
+Size: 290204
+MD5sum: bff632cd742b9e700095ad9f28f83da0
+SHA1: 3b3fb2e6bad98c7afe949623e073b94decd3a22e
+SHA256: 2d0d5e1d7b8b37ab50080f9eda95ea446c8cec29d2c966d47349dc224f3193ef
 
 Package: com.ggtweaks.ggstatus
 Name: GG Status
@@ -26,6 +25,8 @@ Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
 Depends: firmware (>= 15.0), ellekit
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
@@ -36,8 +37,6 @@ Size: 6474
 MD5sum: 4b621b2de041bba8e45fd3bf8d7e3e48
 SHA1: 17e5018c490fed0df01dcfd56ba3fd0ea5c2cbe7
 SHA256: 6b92997179b0492c640ba3a9e7fa5a58b9d29cb1359fc3731e0bdb28010e43e7
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus.json
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
@@ -46,6 +45,8 @@ Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
 Depends: firmware (>= 15.0)
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
@@ -56,5 +57,4 @@ Size: 97704
 MD5sum: 6b3c1ded705548a23aeddf7cb341a023
 SHA1: d205b2b988aa5a8df0d4eb93ae3b3397ce85fc29
 SHA256: b560060389b17fdb6f3e0ec258b1cc7bac36e49df459bd91c82b77f174e21c18
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
+
