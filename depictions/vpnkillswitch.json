@@ -68,6 +68,14 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
+          "title": "3.10.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- **Blocking works again.** Interface-scoped blocking used the loopback address as its gateway. Globally the kernel accepts that; bound to an interface it rejects the route with `ENETUNREACH`, because the gateway has to be reachable within that scope. Since `scoped` became the default, not a single block had been installed. The route now uses the interface's own gateway, and falls back to the link itself where there is no gateway address (cellular).\n- Fixed a feedback loop: when only the daemon's own route messages arrived, the wait returned immediately and the main loop spun — thousands of iterations per second and a log grown to 1.6 MB.\n- Repeated failures are logged at most once a minute\n- `vpnkillswitch-fix` no longer aborts over a helper script removed in 3.9.0, which had stopped the daemon from being started at all"
+        },
+        {
+          "class": "DepictionSubheaderView",
           "title": "3.9.2"
         },
         {
