@@ -1,14 +1,26 @@
 # GGTweaks
 
-Jailbreak-Repo fuer iOS 15+ (rootless, `iphoneos-arm64`).
+**Nur iOS 18. Sonst nichts.**
 
-## In Sileo hinzufuegen
+Kleine Jailbreak-Tweaks für Leute, die ihrem Telefon beim Arbeiten über die
+Schulter schauen wollen. Weißer Hut, offener Quellcode, keine Werbung, kein
+Konto, kein „Pro"-Abo.
+
+## In Sileo hinzufügen
 
 ```
 https://fabiangold.github.io/ggtweaks/
 ```
 
-Sileo → Quellen → Bearbeiten → **+** → Adresse einfuegen.
+Klein geschrieben — GitHub Pages unterscheidet Groß- und Kleinschreibung.
+
+## Warum nur iOS 18?
+
+Weil ich genau ein Testgerät habe und das läuft auf iOS 18. Alles andere wäre
+geraten, und geratene Tweaks sind der Grund, warum Leute Angst vor Jailbreaks
+haben.
+
+Gebaut und getestet auf iPhone 11 mit Dopamine (rootless), `arm64` und `arm64e`.
 
 Achtung: klein geschrieben. GitHub Pages liefert nur unter
 `fabiangold.github.io/ggtweaks/` aus, die Variante mit Grossbuchstaben
@@ -16,48 +28,30 @@ gibt 404.
 
 ## Pakete
 
-### Coulomb — Adaptive Power
-
-Energiemanagement mit echter Messung statt Schaetzung. Fuer iPhone 11 Pro
-(A13, OLED) gebaut, laeuft auf iOS 15+.
-
-- **Momentanleistung in mW**, nicht in Prozent — gelesen direkt aus
-  `AppleSmartBattery`. Dazu Strom, Spannung, Temperatur, Ladezyklen und
-  Gesundheit aus `NominalChargeCapacity / DesignCapacity`, nicht der
-  gerundete Wert aus den Systemeinstellungen
-- **Stromfresser-Radar:** zeigt ueber `IOPMCopyAssertionsByProcess`
-  namentlich, welcher Prozess das Geraet wachhaelt. Das ist die Ursache von
-  Leerlaufverbrauch — keine geschaetzte Prozentzahl pro App
-- **Prozess-Sperrliste** mit hart kodierter Schutzliste: SpringBoard,
-  backboardd, CommCenter, clockd und Verwandte werden nie beendet.
-  Wecker und Notruf haben Vorrang vor jeder Ersparnis
-- Verlaufskurve der Leistung, Root-Konsole, Kill-Switch-Datei und
-  Crash-Guard gegen Respring-Schleifen
-- Steuerung komplett ueber die mitgelieferte App — PreferenceLoader liefert
-  auf iOS 18.6.2 keine Eintraege mehr aus
-
-**Stand:** Phase 1 von 7 abgeschlossen (API-Verifikation auf dem Geraet).
-Telemetrie-Historie, Profile und Automatik folgen.
-
-**Voraussetzung:** rootless Jailbreak (Dopamine, palera1n) auf iOS 15 oder neuer.
-
 ### VPN Kill Switch
 
-Blockt den gesamten Netzwerkverkehr, sobald die VPN-Verbindung abbricht.
+Reißt die VPN-Verbindung ab, macht der Tweak sofort dicht — statt dass der
+Datenverkehr klammheimlich am Tunnel vorbeispaziert.
 
-- Erkennung ueber die Routing-Tabelle, Reaktion in Millisekunden ueber
-  Kernel-Ereignisse statt Polling
-- Blockiert IPv4 **und** IPv6 – ein reiner IPv4-Block laesst im Mobilfunk
-  den Grossteil des Verkehrs durch
-- Allowlist fuer den VPN-Server, damit die VPN-App sich neu verbinden kann
-- Eigene Sperrliste mit CIDR-Unterstuetzung (z. B. `17.0.0.0/8`)
-- App mit Live-Verkehrsanzeige pro Interface, Installationstest und
-  Diagnosebericht
-- Notbremse gegen dauerhaftes Aussperren
+- Reagiert über Kernel-Ereignisse statt Nachschauen im Sekundentakt
+- Blockt IPv4 **und** IPv6 — im Mobilfunk läuft das meiste über IPv6, ein
+  reiner IPv4-Block ist ein Sieb mit Zertifikat
+- Ausnahmeliste, damit die VPN-App sich neu verbinden kann
+- Eigene Sperrliste mit ganzen Bereichen, etwa `17.0.0.0/8`
+- App mit Live-Verkehrsanzeige: du *siehst*, dass nichts rausgeht
+- Notbremse gegen versehentliches Selbst-Aussperren
 
-**Voraussetzung:** rootless Jailbreak (Dopamine, palera1n) auf iOS 15 oder neuer.
+### Coulomb
 
-## Hinweis
+Profilbasiertes Energiemanagement mit Telemetrie und eigener Steuer-App.
 
-Gebaut mit [Theos](https://theos.dev). Die Pakete sind fake-signiert (ldid) und
-laufen nur auf gejailbreakten Geraeten.
+## Der weiße Hut
+
+Alles hier ist dafür da, das **eigene** Gerät zu verstehen und abzusichern.
+Kein Ausspähen, keine fremden Netze, keine Umgehung von Schutzmaßnahmen
+anderer Leute. Der Quellcode liegt offen — lies ihn, bevor du ihn
+installierst. Das gilt für meine Pakete genauso wie für alle anderen.
+
+---
+
+Gebaut mit [Theos](https://theos.dev). Läuft nur auf gejailbreakten Geräten.
