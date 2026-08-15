@@ -7,33 +7,60 @@
       "tabname": "Details",
       "class": "DepictionStackView",
       "views": [
-        { "class": "DepictionMarkdownView",
-          "markdown": "Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Ein Hintergrunddienst beobachtet die Routing-Tabelle: liegt die Default-Route auf einem `utun`-Interface, gilt das VPN als aktiv. Verschwindet sie, wird der ausgehende Verkehr über Sperrrouten unterbunden – für IPv4 und IPv6." },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Blocks network traffic as soon as the VPN connection drops. A background daemon watches the routing table: if the default route sits on a `utun` interface, the VPN counts as active. When it disappears, outbound traffic is cut off using blocking routes — for IPv4 and IPv6."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "The daemon listens on the kernel routing socket and is notified by events rather than polling. The gap between drop and block is milliseconds."
+        },
         { "class": "DepictionSeparatorView" },
-        { "class": "DepictionSubheaderView", "title": "Funktionen" },
-        { "class": "DepictionMarkdownView",
-          "markdown": "- Sperrt IPv4 und IPv6 getrennt voneinander\n- Ausnahmeliste für VPN-Server, damit die VPN-App neu verbinden kann\n- Erkennt Server-Adressen selbstständig nach mehrfacher Bestätigung\n- Eigene Sperrliste, auch für ganze Bereiche wie `17.0.0.0/8`\n- Drei Sperrverfahren wählbar\n- App mit Live-Anzeige des Datenverkehrs pro Interface\n- Installationstest und Diagnosebericht\n- Pause für gewollte Trennungen, endet automatisch\n- Notbremse: Sperre wird nach zehn Minuten ohne VPN aufgehoben" },
+        { "class": "DepictionSubheaderView", "title": "Features" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Detects server addresses on its own, adopting them after repeated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Safety release: a block is lifted automatically after ten minutes without VPN"
+        },
         { "class": "DepictionSeparatorView" },
-        { "class": "DepictionSubheaderView", "title": "Einrichtung" },
-        { "class": "DepictionMarkdownView",
-          "markdown": "Nach der Installation ist der Tweak im Testmodus und blockiert nichts. So lässt sich die Erkennung prüfen, ohne sich auszusperren.\n\n1. App **Kill Switch** öffnen\n2. VPN verbinden, dann **Lernen** antippen\n3. **Scharf** antippen\n4. VPN trennen und im Verkehrsmonitor prüfen" },
-        { "class": "DepictionTableButtonView", "title": "Ausführliche Beschreibung",
-          "action": "https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/",
-          "openExternal": true }
+        { "class": "DepictionSubheaderView", "title": "Setup" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "After installation the tweak runs in test mode and blocks nothing, so detection can be verified without risking a lockout.\n\n1. Open the **Kill Switch** app\n2. Connect the VPN, then tap **Learn**\n3. Tap **Armed**\n4. Disconnect the VPN and check the traffic monitor for outbound traffic\n\nThe app ships in English and German and follows the device language."
+        },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Limitations" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**Granularity.** Rules apply per destination address, not per app or port. That would require `pf` or a Network Extension, neither of which iOS offers here."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**Inbound.** Routes only control outbound traffic. Inbound packets still reach the interface but cannot be answered."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**System behaviour.** While blocking, iOS may report “no internet connection” and switch to cellular, where blocking also applies."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**VPN apps.** Some apps will not attempt a connection while the network is blocked. The pause function and an automatic reconnect window address this."
+        }
       ]
     },
     {
-      "tabname": "Grenzen",
+      "tabname": "Changes",
       "class": "DepictionStackView",
       "views": [
-        { "class": "DepictionMarkdownView",
-          "markdown": "**Granularität.** Regeln gelten pro Ziel-Adresse, nicht pro App oder Port. Dafür wären `pf` oder eine Network Extension nötig; iOS stellt beides hier nicht bereit." },
-        { "class": "DepictionMarkdownView",
-          "markdown": "**Eingehender Verkehr.** Routen steuern nur die ausgehende Richtung. Eingehende Pakete erreichen weiterhin die Schnittstelle, können aber nicht beantwortet werden." },
-        { "class": "DepictionMarkdownView",
-          "markdown": "**Systemverhalten.** Bei aktiver Sperre meldet iOS gegebenenfalls „keine Internetverbindung“ und wechselt auf Mobilfunk, wo ebenfalls gesperrt wird." },
-        { "class": "DepictionMarkdownView",
-          "markdown": "**VPN-Apps.** Manche Apps starten bei gesperrtem Netz keinen Verbindungsaufbau. Dafür gibt es die Pause-Funktion und ein automatisches Verbindungsfenster." }
+        { "class": "DepictionSubheaderView", "title": "3.9.0" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- App available in English and German; English is the default\n- Daemon replies are localized in the app as well\n- Terminal tools output English\n- `vpnkillswitch-test` rewritten: it now checks routes instead of the `pf` setup the daemon no longer uses\n- Removed four helper scripts that had become dead weight"
+        },
+        { "class": "DepictionSubheaderView", "title": "3.8.0" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Interface-scoped blocking is the default, so iOS keeps reporting a usable network and VPN apps still attempt to reconnect\n- Reworked app layout, no more overlapping labels"
+        }
       ]
     },
     {
@@ -42,13 +69,20 @@
       "views": [
         { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
         { "class": "DepictionTableTextView", "title": "Jailbreak", "text": "Dopamine, palera1n" },
-        { "class": "DepictionTableTextView", "title": "Architektur", "text": "arm64, arm64e" },
-        { "class": "DepictionTableTextView", "title": "Getestet mit", "text": "Mullvad (WireGuard)" },
+        { "class": "DepictionTableTextView", "title": "Architecture", "text": "arm64, arm64e" },
+        { "class": "DepictionTableTextView", "title": "Languages", "text": "English, German" },
+        { "class": "DepictionTableTextView", "title": "Tested with", "text": "Mullvad (WireGuard)" },
         { "class": "DepictionSeparatorView" },
-        { "class": "DepictionMarkdownView",
-          "markdown": "Entwickelt und getestet auf einem iPhone 11 mit iOS 18.6.2. Andere Geräte und Versionen sind nicht geprüft." },
-        { "class": "DepictionTableButtonView", "title": "Quellcode",
-          "action": "https://github.com/fabiangold/ggtweaks", "openExternal": true }
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Developed and tested on an iPhone 11 running iOS 18.6.2. Other devices and versions are unverified."
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source",
+          "action": "https://github.com/fabiangold/ggtweaks",
+          "openExternal": true
+        }
       ]
     }
   ]
