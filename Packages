@@ -10,13 +10,13 @@ Icon: file:///var/jb/Library/PreferenceBundles/CoulombPrefs.bundle/icon@3x.png
 Depiction: https://github.com/fabiangold/GGTweaks
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 1.2.1
-Installed-Size: 2736
-Filename: debs/com.ggtweaks.coulomb_1.2.1_iphoneos-arm64.deb
-Size: 290204
-MD5sum: bff632cd742b9e700095ad9f28f83da0
-SHA1: 3b3fb2e6bad98c7afe949623e073b94decd3a22e
-SHA256: 2d0d5e1d7b8b37ab50080f9eda95ea446c8cec29d2c966d47349dc224f3193ef
+Version: 1.3.0
+Installed-Size: 2768
+Filename: debs/com.ggtweaks.coulomb_1.3.0_iphoneos-arm64.deb
+Size: 294530
+MD5sum: 832be6629c55ed024770df434cb95698
+SHA1: d87e08860d5e75aa7c91cbfe63099af3d2bc44c3
+SHA256: 74980798906d8ce5dcb9d34e40711665f2212913b8c9d4f3b617cd73c1c08a21
 
 Package: com.ggtweaks.ggstatus
 Name: GG Status
