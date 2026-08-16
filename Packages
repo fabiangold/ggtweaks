@@ -50,13 +50,13 @@ SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/statusbareditor
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.3.1
-Installed-Size: 712
-Filename: debs/com.ggtweaks.statusbareditor_0.3.1_iphoneos-arm64.deb
-Size: 250996
-MD5sum: 65460054b14deda11ed91794b5e06d54
-SHA1: df3d82b789c4a316347f59865ce374955eb8a4c4
-SHA256: d14437437847b1c36a2f2e6825e6b9ed089898e9fade586acfdbeafdd3112c71
+Version: 0.5.1
+Installed-Size: 744
+Filename: debs/com.ggtweaks.statusbareditor_0.5.1_iphoneos-arm64.deb
+Size: 255924
+MD5sum: d2d2f5d87cc2a2ec2be609afd3891f3b
+SHA1: e27b928c4e9d80c110e7d2bc86d12dca3a8ece1d
+SHA256: 4c1c4cb02617289c6c29869c1d6965f9c80b42afbbcc06d380d6692ec03b22aa
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
