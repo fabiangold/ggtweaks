@@ -1,0 +1,72 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://fabiangold.github.io/ggtweaks/icon.png",
+  "tintColor": "#2ECC71",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Hide or rearrange the iOS 18 status bar, and add items of your own. Comes with an app — no Settings pane, no editing files by hand."
+        },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "Why it sees more than older tweaks" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Status bar tweaks have traditionally hooked `SBStatusBarStateAggregator -_setItem:enabled:` and switched **numbered** items: 0 for the clock, 6 for Wi-Fi, 8 for the battery. Fourteen of them, and the numbers are undocumented — they shift between iOS versions.\n\nOn iOS 18 the status bar is drawn by StatusKit, and the item set has grown well past those fourteen. This tweak asks the running system which entries exist and writes the list out; the app builds its interface from that. On an iPhone 11 Pro running iOS 18.6.2 it finds **37**, including ones that did not exist when the older tweaks were written: satellite, focus, the camera and microphone indicator, liquid detection."
+        },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "How hiding works" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "An item switched off is removed from the data **before** the status bar is drawn — not covered by a black rectangle, and not faked. The layout closes up as if the item had never been there.\n\nOwn items are drawn in a separate window above the bar. That window has no rotation and takes no touches, so the control centre still pulls down over it."
+        },
+        { "class": "DepictionSeparatorView" },
+        { "class": "DepictionSubheaderView", "title": "The app" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Every item with a switch, searchable\n- Preview showing what the bar will look like\n- Own items with position, size and any SF Symbol\n- Presets to save and switch between selections\n- Show all / hide all in one step\n- Respring button\n\nChanges take effect at once — a respring is only needed the very first time."
+        }
+      ]
+    },
+    {
+      "tabname": "Changes",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionSubheaderView", "title": "0.3.1" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- App renamed to GG Statusbar Editor, with its own icon\n- Search, preview, presets, show all / hide all, respring button\n- Own items can be added and removed, not just edited\n- Fixed a build fault that shipped an empty tweak: renaming the app target also renamed the tweak's file list, so the dylib contained no code at all"
+        },
+        { "class": "DepictionSubheaderView", "title": "0.1.0" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- First version: intercepts `STUIStatusBar` and hides items by name"
+        }
+      ]
+    },
+    {
+      "tabname": "System",
+      "class": "DepictionStackView",
+      "views": [
+        { "class": "DepictionTableTextView", "title": "System", "text": "iOS 18, rootless" },
+        { "class": "DepictionTableTextView", "title": "Architecture", "text": "arm64, arm64e" },
+        { "class": "DepictionTableTextView", "title": "Dependencies", "text": "ellekit" },
+        { "class": "DepictionTableTextView", "title": "Tested on", "text": "iPhone 11 Pro, iOS 18.6.2" },
+        { "class": "DepictionSeparatorView" },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Developed and tested on a single device. The item list is read from the running system, so it should adapt to other iOS 18 devices — but that is untested.\n\nIf nothing changes, the tweak writes what it does to `/var/mobile/Library/Logs/statusbareditor.log`."
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source",
+          "action": "https://github.com/fabiangold/ggtweaks",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}

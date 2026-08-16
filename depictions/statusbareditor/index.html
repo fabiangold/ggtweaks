@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GG Statusbar Editorbar Editor — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>GG Statusbar Editor</h1>
+  <p class="lead" data-lang="de">
+    Die Statusleiste von iOS 18 bearbeiten: Elemente ausblenden, eigene ergänzen. Version 0.3.1.
+  </p>
+  <p class="lead" data-lang="en">
+    Edit the iOS 18 status bar: hide items, add your own. Version 0.3.1.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.statusbareditor_0.3.1_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Warum er mehr sieht als ältere Tweaks</h2>
+<h2 data-lang="en">Why it sees more than older tweaks</h2>
+<div class="card">
+  <p data-lang="de">
+    Bisherige Statusleisten-Tweaks hängen sich an
+    <code>SBStatusBarStateAggregator -_setItem:enabled:</code> und schalten
+    <strong>nummerierte</strong> Elemente: 0 für die Uhr, 6 für WLAN, 8 für die
+    Batterie. Vierzehn Stück, und die Nummern stehen nirgends geschrieben — sie
+    verschieben sich zwischen den iOS-Versionen.
+  </p>
+  <p data-lang="en">
+    Existing status bar tweaks hook
+    <code>SBStatusBarStateAggregator -_setItem:enabled:</code> and switch
+    <strong>numbered</strong> items: 0 for the clock, 6 for Wi-Fi, 8 for the
+    battery. Fourteen of them, and the numbers are undocumented — they shift
+    between iOS versions.
+  </p>
+  <p data-lang="de">
+    Auf iOS 18 zeichnet StatusKit die Leiste, und die Zahl der Einträge ist
+    deutlich gewachsen. Dieser Tweak fragt das laufende System, welche es gibt,
+    und schreibt die Liste heraus; die App baut ihre Oberfläche daraus. Auf einem
+    iPhone 11 Pro mit iOS 18.6.2 findet er <strong>37</strong> — darunter
+    Satellit, Fokus, die Kamera- und Mikrofonanzeige und die
+    Flüssigkeitswarnung.
+  </p>
+  <p data-lang="en">
+    On iOS 18 the status bar is drawn by StatusKit and the item set has grown
+    well past those fourteen. This tweak asks the running system which entries
+    exist and writes the list out; the app builds its interface from that. On an
+    iPhone 11 Pro running iOS 18.6.2 it finds <strong>37</strong> — including
+    satellite, focus, the camera and microphone indicator and liquid detection.
+  </p>
+</div>
+
+<h2 data-lang="de">Die App</h2>
+<h2 data-lang="en">The app</h2>
+<div class="card">
+  <ul data-lang="de">
+    <li>Jedes Element mit Schalter, durchsuchbar</li>
+    <li>Vorschau der Leiste</li>
+    <li>Eigene Elemente mit Position, Größe und beliebigem SF-Symbol</li>
+    <li>Voreinstellungen zum Sichern und Umschalten</li>
+    <li>Alles anzeigen / alles ausblenden in einem Schritt</li>
+    <li>Respring-Schaltfläche</li>
+  </ul>
+  <ul data-lang="en">
+    <li>Every item with a switch, searchable</li>
+    <li>Preview of the bar</li>
+    <li>Own items with position, size and any SF Symbol</li>
+    <li>Presets to save and switch between selections</li>
+    <li>Show all / hide all in one step</li>
+    <li>Respring button</li>
+  </ul>
+  <p class="note" data-lang="de">
+    Ein ausgeblendetes Element wird aus den Daten entfernt, <em>bevor</em> die
+    Leiste gezeichnet wird — nicht mit einem schwarzen Rechteck überdeckt. Das
+    Layout rückt zusammen, als hätte es das Element nie gegeben.
+  </p>
+  <p class="note" data-lang="en">
+    A hidden item is removed from the data <em>before</em> the bar is drawn — not
+    covered with a black rectangle. The layout closes up as if the item had never
+    been there.
+  </p>
+</div>
+
+<h2 data-lang="de">Voraussetzungen</h2>
+<h2 data-lang="en">Requirements</h2>
+<div class="card">
+  <table>
+    <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
+    <tr><td data-lang="de">Architektur</td><td data-lang="en">Architecture</td><td>arm64, arm64e</td></tr>
+    <tr><td data-lang="de">Abhängigkeiten</td><td data-lang="en">Dependencies</td><td>ellekit</td></tr>
+    <tr><td data-lang="de">Getestet auf</td><td data-lang="en">Tested on</td><td>iPhone 11 Pro, iOS 18.6.2</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p data-lang="de">Paket <code>com.ggtweaks.ggstatus</code> · <a href="https://github.com/fabiangold/ggtweaks">Quellcode</a></p>
+  <p data-lang="en">Package <code>com.ggtweaks.ggstatus</code> · <a href="https://github.com/fabiangold/ggtweaks">Source</a></p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -30,13 +30,33 @@ SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.4.0
+Version: 0.9.0
 Installed-Size: 172
-Filename: debs/com.ggtweaks.ggstatus_0.4.0_iphoneos-arm64.deb
-Size: 8800
-MD5sum: 42fe8dcfb8a7044d54654caceba9e283
-SHA1: de7a186e9a3b103c926d4ca71be69576026e88cd
-SHA256: 4cbff5a98b5a59d05728cba71188eb58047926b9e8b923327a11392fa28af6f7
+Filename: debs/com.ggtweaks.ggstatus_0.9.0_iphoneos-arm64.deb
+Size: 13396
+MD5sum: 740c2cc262b7994e1a4583f248496615
+SHA1: ebc9e913c5b0e05c6ca432c7b1bbf63873f7471e
+SHA256: cfb68e1de2aee6ffa35f7cd01c9481d2af4fb86f4ec387e09ff3c592516113fe
+
+Package: com.ggtweaks.statusbareditor
+Name: Status Bar Editor
+Description: Hide or change individual status bar items on iOS 18.
+Maintainer: GGTweaks
+Author: GGTweaks
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/statusbareditor/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/statusbareditor.json
+Icon: https://fabiangold.github.io/ggtweaks/icon.png
+Tag: compatible::ios18
+Architecture: iphoneos-arm64
+Version: 0.3.1
+Installed-Size: 712
+Filename: debs/com.ggtweaks.statusbareditor_0.3.1_iphoneos-arm64.deb
+Size: 250996
+MD5sum: 65460054b14deda11ed91794b5e06d54
+SHA1: df3d82b789c4a316347f59865ce374955eb8a4c4
+SHA256: d14437437847b1c36a2f2e6825e6b9ed089898e9fade586acfdbeafdd3112c71
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
