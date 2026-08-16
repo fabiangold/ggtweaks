@@ -18,45 +18,28 @@ MD5sum: 48e93e57c5028014ba44c4061d7fbdcb
 SHA1: 6fde7e0177727aa1077c472c5178112292288174
 SHA256: 8ecd903f1c5274e0a2a0eb7aa680701e6bfaa7322bd388c09562e216dfb694c3
 
-Package: com.ggtweaks.ggstatus
-Name: GG Status
-Description: Shows the VPN Kill Switch state in the status bar.
-Maintainer: GGTweaks
-Author: GGTweaks
-Section: Tweaks
-Depends: firmware (>= 15.0), ellekit
-Depiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus/
-SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggstatus.json
-Icon: https://fabiangold.github.io/ggtweaks/icon.png
-Tag: compatible::ios18
-Architecture: iphoneos-arm64
-Version: 1.0.0
-Installed-Size: 208
-Filename: debs/com.ggtweaks.ggstatus_1.0.0_iphoneos-arm64.deb
-Size: 16848
-MD5sum: 47c96a1145304c0ebea5f66decb6517b
-SHA1: bf2c377011f41bee9adb03d47cb7032ac207f70a
-SHA256: 31083538c5dc949392e3c2126d2b8c9e0b007ed42974fd547c3e6230a14f0265
-
 Package: com.ggtweaks.statusbareditor
 Name: Status Bar Editor
-Description: Hide or change individual status bar items on iOS 18.
+Description: Hide or change individual status bar items on iOS 18, plus a VPN Kill Switch indicator.
 Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
 Depends: firmware (>= 15.0), ellekit
+Replaces: com.ggtweaks.ggstatus
+Conflicts: com.ggtweaks.ggstatus
+Provides: com.ggtweaks.ggstatus
 Depiction: https://fabiangold.github.io/ggtweaks/depictions/statusbareditor/
 SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/statusbareditor.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.5.1
-Installed-Size: 744
-Filename: debs/com.ggtweaks.statusbareditor_0.5.1_iphoneos-arm64.deb
-Size: 255924
-MD5sum: d2d2f5d87cc2a2ec2be609afd3891f3b
-SHA1: e27b928c4e9d80c110e7d2bc86d12dca3a8ece1d
-SHA256: 4c1c4cb02617289c6c29869c1d6965f9c80b42afbbcc06d380d6692ec03b22aa
+Version: 0.6.0
+Installed-Size: 780
+Filename: debs/com.ggtweaks.statusbareditor_0.6.0_iphoneos-arm64.deb
+Size: 265206
+MD5sum: 6b61a516346f497f3f6ae6214d463ab1
+SHA1: 3242e9c1d6a0cc5402d16306dd9f788923ff7202
+SHA256: 1da52ea39792e1f2e87cb16c9c74c3bd4d66723cc5d5a84fb49dfbeff627bb0f
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
