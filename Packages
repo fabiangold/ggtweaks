@@ -10,13 +10,13 @@ Icon: file:///var/jb/Library/PreferenceBundles/CoulombPrefs.bundle/icon@3x.png
 Depiction: https://github.com/fabiangold/GGTweaks
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 1.7.0
+Version: 1.8.0
 Installed-Size: 3032
-Filename: debs/com.ggtweaks.coulomb_1.7.0_iphoneos-arm64.deb
-Size: 340800
-MD5sum: 48e93e57c5028014ba44c4061d7fbdcb
-SHA1: 6fde7e0177727aa1077c472c5178112292288174
-SHA256: 8ecd903f1c5274e0a2a0eb7aa680701e6bfaa7322bd388c09562e216dfb694c3
+Filename: debs/com.ggtweaks.coulomb_1.8.0_iphoneos-arm64.deb
+Size: 341732
+MD5sum: 4b1cc9fce2cdef9cfb297c3e82134f93
+SHA1: 2024b72ecddf8a101749af285c8d4abac9d1c76a
+SHA256: 0f2aabd29b7c747018ddd15a15630dc723a34888419146c7659fc9e2e55f6a9a
 
 Package: com.ggtweaks.statusbareditor
 Name: Status Bar Editor
