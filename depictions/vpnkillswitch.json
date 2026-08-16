@@ -68,7 +68,15 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
-          "title": "3.11.0"
+          "title": "3.12.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Detects network changes and reports them, so GG Status can show a banner: Wi-Fi \\u2194 cellular \\u2194 VPN, and joining a different Wi-Fi network\n- The Wi-Fi name is read from the system configuration store. `SCDynamicStore` is marked unavailable in the iOS SDK but present in the framework, so the two functions needed are declared by hand — the same approach already used for the routing headers.\n- `NET_NOTIFY=0` switches it off"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "3.12.0"
         },
         {
           "class": "DepictionMarkdownView",

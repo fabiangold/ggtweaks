@@ -59,6 +59,17 @@
         {
           "class": "DepictionMarkdownView",
           "markdown": "The symbol sits to the left of the clock. If it collides with something on your device, move it without rebuilding — create `/var/jb/etc/ggstatus.conf` with lines like `X=120`, `Y=14`, `SIZE=20` and respring."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Network change banners"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Wi-Fi to cellular, cellular to VPN, or a new Wi-Fi network — each shows a short banner naming what changed. The Wi-Fi name comes from the system configuration store, so it is the real network name, not a guess.\n\nSwitch it off with `NET_NOTIFY=0` in the kill switch configuration."
         }
       ]
     },
@@ -68,7 +79,15 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
-          "title": "0.9.0"
+          "title": "1.0.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- **Notifications on network changes.** A banner when the connection moves between Wi-Fi, cellular and VPN, and when a different Wi-Fi network is joined.\n- The daemon sees the change first — it sits on the kernel routing socket — but as a root service without a screen it cannot show anything. It writes the event and posts a notification; this tweak draws the banner.\n- The banner is its own window, not a system notification. It appears and fades on its own, and does not land in Notification Centre."
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.0.0"
         },
         {
           "class": "DepictionMarkdownView",
