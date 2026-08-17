@@ -22,10 +22,10 @@
 <header>
   <h1>VPN Kill Switch</h1>
   <p class="lead" data-lang="de">
-    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.13.3.
+    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.14.0.
   </p>
   <p class="lead" data-lang="en">
-    Blocks network traffic as soon as the VPN connection drops. Version 3.13.3.
+    Blocks network traffic as soon as the VPN connection drops. Version 3.14.0.
   </p>
 </header>
 
@@ -33,7 +33,7 @@
   <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
     <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
   </a>
-  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.13.3_iphoneos-arm64.deb">
+  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.14.0_iphoneos-arm64.deb">
     <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
   </a>
 </div>
@@ -75,6 +75,9 @@
   <li>App mit Live-Anzeige des Datenverkehrs pro Interface, getrennt nach Richtung</li>
   <li>Installationstest und Diagnosebericht zum Weitergeben</li>
   <li>Pause-Funktion für gewollte Trennungen, endet automatisch bei bestehender Verbindung</li>
+  <li>Dauerhafte Systemmitteilungen für Sperre, Wiederverbindung, Fehler, Netzwechsel und Dienstzustand</li>
+  <li>Zeitkritische Warnstufe für Schutzfehler, ohne den Stummschalter zu umgehen</li>
+  <li>Kein automatisches globales Freigabefenster mehr; nur VPN-Endpunkte bleiben erreichbar</li>
   <li>Notbremse: Ein Block wird nach zehn Minuten ohne VPN selbstständig aufgehoben</li>
 </ul>
 <ul data-lang="en">
@@ -86,6 +89,9 @@
   <li>App with live per-interface traffic view, separated by direction</li>
   <li>Installation test and shareable diagnostic report</li>
   <li>Pause for intentional disconnects, ends automatically once the tunnel is back</li>
+  <li>Persistent system notifications for blocking, reconnection, failures, network changes and daemon health</li>
+  <li>Time-sensitive warning level for protection failures without bypassing the silent switch</li>
+  <li>No automatic global release window; only VPN endpoints remain reachable</li>
   <li>Safety release: a block is lifted automatically after ten minutes without VPN</li>
 </ul>
 
@@ -145,8 +151,8 @@
     </tr>
     <tr>
       <td data-lang="de">VPN-Apps</td><td data-lang="en">VPN apps</td>
-      <td data-lang="de">Manche Apps starten bei gesperrtem Netz keinen Verbindungsaufbau. Dafür gibt es die Pause-Funktion und ein automatisches Verbindungsfenster.</td>
-      <td data-lang="en">Some apps will not attempt a connection while the network is blocked. The pause function and an automatic reconnect window address this.</td>
+      <td data-lang="de">Das scoped-Verfahren hält gezielt nur die gelernten VPN-Endpunkte erreichbar. Ein vollständiges Freigabefenster öffnet sich nicht automatisch; für den Notfall gibt es eine ausdrücklich bestätigte manuelle Funktion.</td>
+      <td data-lang="en">The scoped method keeps only learned VPN endpoints reachable. A full release window never opens automatically; an explicitly confirmed manual fallback remains available.</td>
     </tr>
   </table>
 </div>
@@ -158,7 +164,7 @@
     <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
     <tr><td data-lang="de">Jailbreak</td><td data-lang="en">Jailbreak</td><td>Dopamine, palera1n</td></tr>
     <tr><td data-lang="de">Architektur</td><td data-lang="en">Architecture</td><td>arm64, arm64e</td></tr>
-    <tr><td data-lang="de">Abhängigkeiten</td><td data-lang="en">Dependencies</td><td>—</td></tr>
+    <tr><td data-lang="de">Abhängigkeiten</td><td data-lang="en">Dependencies</td><td>ellekit</td></tr>
     <tr><td data-lang="de">Getestet mit</td><td data-lang="en">Tested with</td><td>Mullvad (WireGuard)</td></tr>
   </table>
 </div>

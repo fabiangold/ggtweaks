@@ -63,6 +63,14 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
+          "title": "0.6.2"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- VPN Kill Switch status item is built into the editor; the former GG Status package is no longer required\n- Avoids duplicate four-second network banners when VPN Kill Switch 3.14 or newer provides persistent system notifications\n- Corrected the displayed build version"
+        },
+        {
+          "class": "DepictionSubheaderView",
           "title": "0.5.1"
         },
         {

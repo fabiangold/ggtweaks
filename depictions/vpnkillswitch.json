@@ -24,7 +24,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Detects server addresses on its own, adopting them after repeated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Safety release: a block is lifted automatically after ten minutes without VPN"
+          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Detects server addresses on its own, adopting them after repeated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Persistent notifications for blocking, reconnection, failures, network changes and daemon health\n- Time-sensitive protection warnings without bypassing the silent switch\n- No automatic global release window; only VPN endpoints remain reachable\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Safety release: a block is lifted automatically after ten minutes without VPN"
         },
         {
           "class": "DepictionSeparatorView"
@@ -58,7 +58,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "**VPN apps.** Some apps will not attempt a connection while the network is blocked. The pause function and an automatic reconnect window address this."
+          "markdown": "**VPN apps.** The scoped method keeps only learned VPN endpoints reachable. A full release window never opens automatically; an explicitly confirmed manual fallback remains available."
         }
       ]
     },
@@ -66,6 +66,14 @@
       "tabname": "Changes",
       "class": "DepictionStackView",
       "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "3.14.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Real system notifications now remain in Notification Center instead of disappearing after four seconds\n- Separate controls for protection changes, network changes, warnings, sounds and time-sensitive delivery\n- Time-sensitive protection events include a detailed explanation and open the Kill Switch app when tapped\n- Added an end-to-end notification test and daemon health monitoring\n- Network notifications now describe only physical Wi-Fi/cellular changes; VPN route changes no longer create duplicates\n- Automatic global reconnect windows are disabled. They briefly exposed all traffic and are no longer needed with working interface-scoped routes; only learned VPN endpoints remain reachable\n- Existing configurations are migrated without overwriting tested firewall settings"
+        },
         {
           "class": "DepictionSubheaderView",
           "title": "3.13.1"

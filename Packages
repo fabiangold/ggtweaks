@@ -73,13 +73,13 @@ SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/statusbareditor
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.6.1
+Version: 0.6.2
 Installed-Size: 780
-Filename: debs/com.ggtweaks.statusbareditor_0.6.1_iphoneos-arm64.deb
-Size: 265196
-MD5sum: 0b0e4cfec0134db949e6680d677b2736
-SHA1: bc5721d7ed355cf72ca764716a381e7dc05e3c09
-SHA256: 1b0c5a171f746e399e3a89405df61fc20d02cb2cc2383824ffc68fb1171db351
+Filename: debs/com.ggtweaks.statusbareditor_0.6.2_iphoneos-arm64.deb
+Size: 265358
+MD5sum: 8bf168ee441c8fafde630e6560b8f7dc
+SHA1: 572843dfc1e6b8da72b77fe92f2a1275eb84537e
+SHA256: 22360a828980bbfba80174f25fd47a116696c94c0977147d20818168aa2dac3c
 
 Package: com.ggtweaks.vpnkillswitch
 Name: VPN Kill Switch
@@ -87,17 +87,17 @@ Description: Blockt jeglichen Netzwerkverkehr, sobald die VPN-Verbindung (utun) 
 Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
-Depends: firmware (>= 15.0)
+Depends: firmware (>= 15.0), ellekit
 Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
 SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 3.13.3
-Installed-Size: 700
-Filename: debs/com.ggtweaks.vpnkillswitch_3.13.3_iphoneos-arm64.deb
-Size: 107970
-MD5sum: e51364097f3fe85bb93b8815ce10c3b8
-SHA1: 9357f71784e7bf3e0634729d0c8e97bc77af9762
-SHA256: aed8205af6e22c406092cd5a6b60233d6441ba0be0683ba309de2299966003b9
+Version: 3.14.0
+Installed-Size: 964
+Filename: debs/com.ggtweaks.vpnkillswitch_3.14.0_iphoneos-arm64.deb
+Size: 126076
+MD5sum: 4cd2dfbaa76378520b996834714841ca
+SHA1: a6602f68df90dca8ce59f9fc6a016b172ce05eda
+SHA256: 2ba1e3354e8e46395243139b30e498e9b53ff96e044988e32f4930772ae5564d
 
