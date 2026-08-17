@@ -18,6 +18,26 @@ MD5sum: 4b1cc9fce2cdef9cfb297c3e82134f93
 SHA1: 2024b72ecddf8a101749af285c8d4abac9d1c76a
 SHA256: 0f2aabd29b7c747018ddd15a15630dc723a34888419146c7659fc9e2e55f6a9a
 
+Package: com.ggtweaks.ggpower
+Name: GG Power
+Description: Replaces Siri on the side button with a power dial you tap through.
+Maintainer: GGTweaks
+Author: GGTweaks
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/ggpower/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggpower.json
+Icon: https://fabiangold.github.io/ggtweaks/icon.png
+Tag: compatible::ios18
+Architecture: iphoneos-arm64
+Version: 0.3.0
+Installed-Size: 352
+Filename: debs/com.ggtweaks.ggpower_0.3.0_iphoneos-arm64.deb
+Size: 23998
+MD5sum: 968210639001407cc08a1720eaf29989
+SHA1: c96ab01679147b732981b6b7aa95e5ae563d1bdb
+SHA256: 460a55ccf962d0bfac7e692c1819cceb45b6d41e34039858a3ee14e2e00b43a7
+
 Package: com.ggtweaks.statusbareditor
 Name: Status Bar Editor
 Description: Hide or change individual status bar items on iOS 18, plus a VPN Kill Switch indicator.
