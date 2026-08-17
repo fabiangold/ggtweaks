@@ -30,13 +30,13 @@ SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggpower.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 0.3.0
-Installed-Size: 352
-Filename: debs/com.ggtweaks.ggpower_0.3.0_iphoneos-arm64.deb
-Size: 23998
-MD5sum: 968210639001407cc08a1720eaf29989
-SHA1: c96ab01679147b732981b6b7aa95e5ae563d1bdb
-SHA256: 460a55ccf962d0bfac7e692c1819cceb45b6d41e34039858a3ee14e2e00b43a7
+Version: 0.4.0
+Installed-Size: 488
+Filename: debs/com.ggtweaks.ggpower_0.4.0_iphoneos-arm64.deb
+Size: 26190
+MD5sum: 209ce07430f0c63cac22362a01f12680
+SHA1: ff37fe9edf3a672ad3c5a15cd5c07e0acab40193
+SHA256: 2fb2674c856f444c32c766a55af3380af0e8fe3b296fa349e06d91ffedd732f8
 
 Package: com.ggtweaks.statusbareditor
 Name: Status Bar Editor
