@@ -9,56 +9,45 @@
       "views": [
         {
           "class": "DepictionMarkdownView",
-          "markdown": "Claude Code on the iPhone — the real CLI, not a remote control for a Mac. An app for signing in and talking to it, and behind that a root daemon running the actual binary on the device."
+          "markdown": "Claude Code im Terminal auf dem iPhone. Die echte CLI von Anthropic, auf dem Gerät ausgeführt — keine Fernsteuerung eines Rechners, keine Zwischenschicht."
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "Anthropic ships Claude Code as a Bun-compiled binary for macOS. This package downloads that build on first run and adapts it for iOS: the Mach-O platform is rewritten, a replacement libSystem supplies the three symbols iOS lacks, the `SharedArrayBuffer` uses are neutralised (JavaScriptCore cannot offer it on iOS — its gigacage wants 64 GB of address space and iOS caps a process near 9 GB), and two macOS framework paths are corrected. Then it is signed with the entitlements the JIT needs."
+          "markdown": "Anthropic liefert Claude Code seit Fassung 2.1.113 als ein mit Bun übersetztes Binary für macOS. Dieses Paket holt genau das beim Einrichten und rechnet es auf dem Gerät auf iOS um: Mach-O-Plattform, eine Ersatz-libSystem für die drei dort fehlenden Symbole, die eifrigen `SharedArrayBuffer`-Stellen und zwei Framework-Pfade. Danach wird es mit den Berechtigungen signiert, die die JavaScript-Engine für ihren JIT braucht.\n\nDu bekommst also die Fassung, die gerade auch auf dem Rechner läuft."
         },
         {
           "class": "DepictionSeparatorView"
         },
         {
           "class": "DepictionSubheaderView",
-          "title": "What you get"
+          "title": "Einrichten"
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- An app with a sign-in screen and a conversation view, in English and German\n- The current release of Claude Code, fetched from npm at setup time — not a build frozen into the package\n- The session runs **as root** in `/var/root`, with full access to the device\n- The same build in a terminal as `claude`\n- Roughly 300 MB after setup; the package itself is 50 KB"
+          "markdown": "In NewTerm oder über SSH:\n\n```\nsudo claude-setup\nclaude auth login\nclaude\n```\n\n`claude-setup` lädt rund 90 MB, passt sie an und signiert. Ein Claude-Abonnement oder ein Anthropic-Konto ist Voraussetzung.\n\nFür eine neuere Fassung einfach wieder `sudo claude-setup`."
         },
         {
           "class": "DepictionSeparatorView"
         },
         {
           "class": "DepictionSubheaderView",
-          "title": "Setup"
+          "title": "Was du wissen solltest"
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "1. Open the **Claude Code** app\n2. Tap **Set up Claude Code** — it downloads about 90 MB, adapts and signs it\n3. Tap **Sign in**, open the page in your browser, paste the code back\n4. Tap **Open session**\n\nA Claude subscription or an Anthropic account is required."
-        },
-        {
-          "class": "DepictionSeparatorView"
-        },
-        {
-          "class": "DepictionSubheaderView",
-          "title": "Worth knowing"
+          "markdown": "**Platz.** Nach dem Einrichten liegen rund 300 MB unter `/var/jb/usr/local/lib/claude-code`. Das Paket selbst ist 16 KB."
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "**Root.** The session runs as root and tool permission prompts are switched off, so Claude can act on the device without asking each time. That is the point of the package — and it means a session can change or delete anything. Treat it accordingly."
+          "markdown": "**Das Token liegt im Klartext.** iOS hat keinen Schlüsselbund, den ein fremder Prozess benutzen kann. Das Anmeldetoken landet deshalb in einer Datei mit Modus 0600 unter `~/.claude/keychain`."
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "**The token sits on disk.** iOS has no keychain a third-party process can use, so the sign-in token is stored in a file with mode 0600 under `~/.claude/keychain`."
+          "markdown": "**Als root.** Läuft `claude` als root, ist `--dangerously-skip-permissions` freigeschaltet — Claude arbeitet dann ohne Rückfrage und kann alles auf dem Gerät ändern. Ohne den Schalter wird wie gewohnt gefragt."
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "**No terminal emulation.** The app renders the conversation natively rather than the terminal interface — on a 375 pt screen that reads better and needs no Esc or arrow keys. Anyone who wants the real interface runs `claude` in NewTerm."
-        },
-        {
-          "class": "DepictionMarkdownView",
-          "markdown": "**Updates.** The built-in auto-updater is switched off; it would replace the adapted binary with the macOS build. Tap **Reinstall / update** in the app to move to a newer release."
+          "markdown": "**Der Autoupdater ist aus.** Er würde das angepasste Binary durch das macOS-Build ersetzen. Aktualisiert wird über `sudo claude-setup`."
         }
       ]
     },
@@ -68,11 +57,19 @@
       "views": [
         {
           "class": "DepictionSubheaderView",
+          "title": "2.0.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**Nur noch Terminal.** App und Root-Daemon aus 1.0.0 sind ersatzlos entfallen — der Umweg über eine eigene Oberfläche brachte nichts, was `claude` im Terminal nicht besser kann. Übrig bleiben vier Dateien: der Wrapper, das Einrichtungswerkzeug, zwei Helfer und die Ersatzbibliothek. Das Paket schrumpft von 50 KB auf 16 KB.\n\n- `sudo claude-setup` statt eines Knopfes in einer App\n- Ein Update über dieses Paket löscht das heruntergeladene Binary nicht mehr"
+        },
+        {
+          "class": "DepictionSubheaderView",
           "title": "1.0.0"
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "First release.\n\nFour things had to be worked out before this could run at all:\n\n- **The binary.** Of its 842 undefined symbols, exactly three are missing on iOS: `__clear_cache`, `pthread_jit_write_protect_np` and `posix_spawn_file_actions_addfchdir`. A replacement libSystem supplies them and re-exports the rest.\n- **SharedArrayBuffer.** JavaScriptCore only exposes it when the gigacage is up, and that reservation is 64 GB — measured on the device, iOS refuses anything past about 9 GB. Every eager use in the binary is rewritten to `ArrayBuffer`.\n- **Shell scripts cannot be spawned.** `posix_spawn` on a `#!` script returns `EPERM` on iOS. Claude Code calls `security` and `open`, neither of which iOS has, so both replacements are compiled programs rather than scripts.\n- **Framework paths.** Bun opens `.../Versions/A/CoreFoundation`; on iOS the path is flat, and without the fix Bun aborts with *Cannot Load CoreFoundation*."
+          "markdown": "Erste Fassung. Vier Dinge mussten dafür herausgefunden werden:\n\n- **Das Binary.** Von 842 undefinierten Symbolen fehlen auf iOS genau drei: `__clear_cache`, `pthread_jit_write_protect_np` und `posix_spawn_file_actions_addfchdir`. Eine Ersatz-libSystem liefert sie und reicht den Rest durch.\n- **SharedArrayBuffer.** JavaScriptCore blendet ihn aus, solange die Gigacage fehlt — und die will 64 GB Adressraum. Am Gerät nachgemessen gibt iOS einem Prozess rund 9 GB. Jede eifrige Verwendung wird auf `ArrayBuffer` umgeschrieben.\n- **Skripte lassen sich nicht starten.** `posix_spawn` auf ein `#!`-Skript liefert unter iOS `EPERM`. Claude Code ruft `security` und `open` auf, die iOS nicht mitbringt — beide Ersätze sind deshalb übersetzte Programme.\n- **Framework-Pfade.** Bun öffnet `…/Versions/A/CoreFoundation`; unter iOS liegen die Frameworks flach, sonst bricht es mit *Cannot Load CoreFoundation* ab."
         }
       ]
     },
@@ -92,29 +89,24 @@
         },
         {
           "class": "DepictionTableTextView",
-          "title": "Architecture",
+          "title": "Architektur",
           "text": "arm64, arm64e"
         },
         {
           "class": "DepictionTableTextView",
-          "title": "Languages",
-          "text": "English, German"
-        },
-        {
-          "class": "DepictionTableTextView",
-          "title": "Space needed",
-          "text": "about 300 MB after setup"
+          "title": "Platzbedarf",
+          "text": "rund 300 MB nach dem Einrichten"
         },
         {
           "class": "DepictionSeparatorView"
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "Developed and tested on an iPhone 11 Pro running iOS 18.6.2 with Dopamine. Other devices and versions are unverified.\n\nClaude Code itself is Anthropic's software and is not part of this package — it is fetched from npm on your device at setup time."
+          "markdown": "Entwickelt und geprüft auf einem iPhone 11 Pro mit iOS 18.6.2 und Dopamine. Andere Geräte und Fassungen sind ungeprüft.\n\nClaude Code selbst ist Software von Anthropic und nicht Teil dieses Pakets — es wird beim Einrichten auf deinem Gerät von npm geladen."
         },
         {
           "class": "DepictionTableButtonView",
-          "title": "Source",
+          "title": "Quelltext",
           "action": "https://github.com/fabiangold/ggtweaks",
           "openExternal": true
         }

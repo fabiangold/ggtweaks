@@ -1,6 +1,6 @@
 Package: com.ggtweaks.claudecode
 Name: Claude Code
-Description: Claude Code auf dem iPhone: App mit Anmeldung und Unterhaltung, dahinter läuft die echte CLI als root.
+Description: Claude Code im Terminal auf dem iPhone. Holt die aktuelle CLI von Anthropic und macht sie unter iOS lauffähig.
 Maintainer: GGTweaks
 Author: GGTweaks
 Section: Development
@@ -8,15 +8,15 @@ Depends: firmware (>= 15.0), ldid, curl
 Depiction: https://fabiangold.github.io/ggtweaks/depictions/claudecode/
 SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/claudecode.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
-Tag: compatible::ios18
+Tag: purpose::console, role::developer, compatible::ios18
 Architecture: iphoneos-arm64
-Version: 1.0.0
-Installed-Size: 872
-Filename: debs/com.ggtweaks.claudecode_1.0.0_iphoneos-arm64.deb
-Size: 54540
-MD5sum: 9de1fec0c9f6c5aa4d33d47565422429
-SHA1: 355819c100ee94e09492e3446759c162d60aeb2a
-SHA256: 79c9822dbaa6d6944d54c3b01cf3120324807b113a97c4216d7f4b19e4e9c0b4
+Version: 2.0.0
+Installed-Size: 536
+Filename: debs/com.ggtweaks.claudecode_2.0.0_iphoneos-arm64.deb
+Size: 16232
+MD5sum: 00910371bc1076f09bbf17e081df3864
+SHA1: 36a16d94337e5286f8d55a361c5ee97df511ba5f
+SHA256: d9bd830c31499e448464af05491e623a12ab20ecacb508fd21f0525dc499e20a
 
 Package: com.ggtweaks.coulomb
 Name: Coulomb

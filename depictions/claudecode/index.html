@@ -22,12 +22,12 @@
 <header>
   <h1>Claude Code</h1>
   <p class="lead" data-lang="de">
-    Claude Code auf dem iPhone. App zum Anmelden und Unterhalten, dahinter läuft
-    die echte CLI als root auf dem Gerät. Version 1.0.0.
+    Claude Code im Terminal auf dem iPhone. Die echte CLI von Anthropic, auf dem
+    Gerät ausgeführt. Version 2.0.0.
   </p>
   <p class="lead" data-lang="en">
-    Claude Code on the iPhone. An app for signing in and talking to it, with the
-    real CLI running as root on the device. Version 1.0.0.
+    Claude Code in the terminal on the iPhone. Anthropic's real CLI, running on
+    the device. Version 2.0.0.
   </p>
 </header>
 
@@ -35,9 +35,29 @@
   <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
     <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
   </a>
-  <a class="btn plain" href="../../debs/com.ggtweaks.claudecode_1.0.0_iphoneos-arm64.deb">
+  <a class="btn plain" href="../../debs/com.ggtweaks.claudecode_2.0.0_iphoneos-arm64.deb">
     <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
   </a>
+</div>
+
+<h2 data-lang="de">Einrichten</h2>
+<h2 data-lang="en">Setup</h2>
+<div class="card">
+  <p data-lang="de">In NewTerm oder über SSH:</p>
+  <p data-lang="en">In NewTerm or over SSH:</p>
+  <pre><code>sudo claude-setup
+claude auth login
+claude</code></pre>
+  <p data-lang="de">
+    <code>claude-setup</code> lädt rund 90 MB, passt sie für iOS an und
+    signiert. Ein Claude-Abonnement oder ein Anthropic-Konto ist Voraussetzung.
+    Für eine neuere Fassung einfach wieder <code>sudo claude-setup</code>.
+  </p>
+  <p data-lang="en">
+    <code>claude-setup</code> downloads about 90 MB, adapts it for iOS and signs
+    it. A Claude subscription or an Anthropic account is required. For a newer
+    release just run <code>sudo claude-setup</code> again.
+  </p>
 </div>
 
 <h2 data-lang="de">Was daran neu ist</h2>
@@ -57,14 +77,12 @@
   <p data-lang="de">
     Dieses Paket geht den anderen Weg: es lädt beim Einrichten das aktuelle
     macOS-Binary und rechnet es auf dem Gerät auf iOS um. Du bekommst also die
-    Fassung, die gerade auch auf dem Rechner läuft — und beim nächsten
-    Einrichten die dann aktuelle.
+    Fassung, die gerade auch auf dem Rechner läuft.
   </p>
   <p data-lang="en">
     This package takes the other route: at setup time it downloads the current
     macOS binary and converts it for iOS on the device. You get the version that
-    is current on the desktop right now — and whatever is current the next time
-    you run setup.
+    is current on the desktop right now.
   </p>
 </div>
 
@@ -151,48 +169,16 @@
   </p>
 </div>
 
-<h2 data-lang="de">Einrichten</h2>
-<h2 data-lang="en">Setup</h2>
-<div class="card">
-  <ol data-lang="de">
-    <li><strong>Claude Code</strong> öffnen</li>
-    <li><strong>Claude Code einrichten</strong> antippen — rund 90 MB werden
-        geladen, umgerechnet und signiert</li>
-    <li><strong>Anmelden</strong> antippen, die Seite im Browser öffnen, den
-        Code zurück in die App einfügen</li>
-    <li><strong>Sitzung öffnen</strong></li>
-  </ol>
-  <ol data-lang="en">
-    <li>Open <strong>Claude Code</strong></li>
-    <li>Tap <strong>Set up Claude Code</strong> — about 90 MB are downloaded,
-        converted and signed</li>
-    <li>Tap <strong>Sign in</strong>, open the page in your browser, paste the
-        code back into the app</li>
-    <li>Tap <strong>Open session</strong></li>
-  </ol>
-  <p class="note" data-lang="de">
-    Ein Claude-Abonnement oder ein Anthropic-Konto ist Voraussetzung. Im
-    Terminal steht derselbe Stand als <code>claude</code> bereit.
-  </p>
-  <p class="note" data-lang="en">
-    A Claude subscription or an Anthropic account is required. The same build is
-    available in a terminal as <code>claude</code>.
-  </p>
-</div>
-
 <h2 data-lang="de">Was du wissen solltest</h2>
 <h2 data-lang="en">Worth knowing</h2>
 <div class="card">
   <p data-lang="de">
-    <strong>Root.</strong> Die Sitzung läuft als root und die Rückfragen vor
-    Werkzeugaufrufen sind abgeschaltet. Genau darum geht es bei diesem Paket —
-    und es heißt, dass eine Sitzung alles auf dem Gerät ändern oder löschen
-    kann. Entsprechend behandeln.
+    <strong>Platz.</strong> Nach dem Einrichten liegen rund 300 MB unter
+    <code>/var/jb/usr/local/lib/claude-code</code>. Das Paket selbst ist 16 KB.
   </p>
   <p data-lang="en">
-    <strong>Root.</strong> The session runs as root and tool permission prompts
-    are off. That is the point of this package — and it means a session can
-    change or delete anything on the device. Treat it accordingly.
+    <strong>Space.</strong> After setup about 300 MB sit in
+    <code>/var/jb/usr/local/lib/claude-code</code>. The package itself is 16 KB.
   </p>
   <p data-lang="de">
     <strong>Das Token liegt im Klartext.</strong> iOS hat keinen Schlüsselbund,
@@ -205,26 +191,26 @@
     <code>~/.claude/keychain</code>.
   </p>
   <p data-lang="de">
-    <strong>Keine Terminalnachbildung.</strong> Die App stellt die Unterhaltung
-    selbst dar statt die Terminaloberfläche nachzubauen — auf 375 pt liest sich
-    das besser und kommt ohne Esc und Pfeiltasten aus. Wer die echte Oberfläche
-    will, startet <code>claude</code> in NewTerm.
+    <strong>Als root.</strong> Läuft <code>claude</code> als root, ist
+    <code>--dangerously-skip-permissions</code> freigeschaltet — Claude arbeitet
+    dann ohne Rückfrage und kann alles auf dem Gerät ändern. Ohne den Schalter
+    wird wie gewohnt vor jedem Werkzeug gefragt.
   </p>
   <p data-lang="en">
-    <strong>No terminal emulation.</strong> The app renders the conversation
-    itself instead of rebuilding the terminal interface — on 375 pt that reads
-    better and needs no Esc or arrow keys. For the real interface, run
-    <code>claude</code> in NewTerm.
+    <strong>As root.</strong> When <code>claude</code> runs as root,
+    <code>--dangerously-skip-permissions</code> is unlocked — Claude then works
+    without asking and can change anything on the device. Without the flag it
+    asks before each tool as usual.
   </p>
   <p data-lang="de">
     <strong>Aktualisieren.</strong> Der eingebaute Autoupdater ist abgeschaltet;
     er würde das umgerechnete Binary durch das macOS-Build ersetzen. Für eine
-    neuere Fassung in der App <strong>Neu einrichten</strong> antippen.
+    neuere Fassung <code>sudo claude-setup</code>.
   </p>
   <p data-lang="en">
     <strong>Updates.</strong> The built-in auto-updater is off; it would replace
-    the converted binary with the macOS build. For a newer release, tap
-    <strong>Reinstall / update</strong> in the app.
+    the converted binary with the macOS build. For a newer release run
+    <code>sudo claude-setup</code>.
   </p>
 </div>
 
@@ -233,13 +219,11 @@
 <div class="card">
   <p data-lang="de">
     iOS 18, rootless, Dopamine. arm64 und arm64e. Entwickelt und geprüft auf
-    einem iPhone 11 Pro mit iOS 18.6.2. Rund 300 MB nach dem Einrichten, das
-    Paket selbst 50 KB.
+    einem iPhone 11 Pro mit iOS 18.6.2.
   </p>
   <p data-lang="en">
     iOS 18, rootless, Dopamine. arm64 and arm64e. Developed and tested on an
-    iPhone 11 Pro running iOS 18.6.2. About 300 MB after setup; the package
-    itself is 50 KB.
+    iPhone 11 Pro running iOS 18.6.2.
   </p>
   <p class="note" data-lang="de">
     Claude Code selbst ist Software von Anthropic und nicht Teil dieses Pakets —
