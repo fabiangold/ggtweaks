@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>Claude Code</h1>
+  <p class="lead" data-lang="de">
+    Claude Code auf dem iPhone. App zum Anmelden und Unterhalten, dahinter läuft
+    die echte CLI als root auf dem Gerät. Version 1.0.0.
+  </p>
+  <p class="lead" data-lang="en">
+    Claude Code on the iPhone. An app for signing in and talking to it, with the
+    real CLI running as root on the device. Version 1.0.0.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.claudecode_1.0.0_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Was daran neu ist</h2>
+<h2 data-lang="en">What is new about this</h2>
+<div class="card">
+  <p data-lang="de">
+    Anthropic liefert Claude Code seit Fassung 2.1.113 nicht mehr als
+    JavaScript, sondern als <strong>mit Bun übersetztes Binary für macOS</strong>.
+    Bisherige Portierungen auf iOS hängen deshalb bei Fassung 2.1.19 fest und
+    bringen ein eigenes Node mit.
+  </p>
+  <p data-lang="en">
+    Since version 2.1.113 Anthropic no longer ships Claude Code as JavaScript
+    but as a <strong>Bun-compiled binary for macOS</strong>. Existing iOS ports
+    are therefore stuck at 2.1.19 and carry their own Node build.
+  </p>
+  <p data-lang="de">
+    Dieses Paket geht den anderen Weg: es lädt beim Einrichten das aktuelle
+    macOS-Binary und rechnet es auf dem Gerät auf iOS um. Du bekommst also die
+    Fassung, die gerade auch auf dem Rechner läuft — und beim nächsten
+    Einrichten die dann aktuelle.
+  </p>
+  <p data-lang="en">
+    This package takes the other route: at setup time it downloads the current
+    macOS binary and converts it for iOS on the device. You get the version that
+    is current on the desktop right now — and whatever is current the next time
+    you run setup.
+  </p>
+</div>
+
+<h2 data-lang="de">Was dafür nötig war</h2>
+<h2 data-lang="en">What it took</h2>
+<div class="card">
+  <p data-lang="de">
+    Das macOS-Binary hängt an genau vier Dingen, die es unter iOS nicht gibt.
+  </p>
+  <p data-lang="en">
+    The macOS binary depends on exactly four things iOS does not provide.
+  </p>
+
+  <h3 data-lang="de">Drei fehlende Symbole</h3>
+  <h3 data-lang="en">Three missing symbols</h3>
+  <p data-lang="de">
+    Von 842 undefinierten Symbolen fehlen unter iOS genau drei:
+    <code>__clear_cache</code>, <code>pthread_jit_write_protect_np</code> und
+    <code>posix_spawn_file_actions_addfchdir</code>. Eine Ersatzbibliothek
+    liefert sie nach und reicht alles Übrige an die echte libSystem weiter; im
+    Binary wird nur der Ladepfad umgebogen — beide Pfade sind zufällig genau
+    26 Zeichen lang, es verschiebt sich also kein Byte.
+  </p>
+  <p data-lang="en">
+    Of 842 undefined symbols exactly three are missing on iOS:
+    <code>__clear_cache</code>, <code>pthread_jit_write_protect_np</code> and
+    <code>posix_spawn_file_actions_addfchdir</code>. A replacement library
+    supplies them and re-exports everything else to the real libSystem; inside
+    the binary only the load path changes — both paths happen to be exactly
+    26 characters, so nothing shifts.
+  </p>
+
+  <h3 data-lang="de">SharedArrayBuffer kann es unter iOS nicht geben</h3>
+  <h3 data-lang="en">SharedArrayBuffer cannot exist on iOS</h3>
+  <p data-lang="de">
+    JavaScriptCore blendet ihn aus, solange die Gigacage fehlt — und die will
+    64 GB Adressraum reservieren. Am Gerät nachgemessen: iOS gibt einem Prozess
+    rund 9 GB, darüber scheitert jedes <code>mmap</code>. Also wird jede
+    <em>eifrige</em> Verwendung im Binary auf <code>ArrayBuffer</code>
+    umgeschrieben und mit Leerzeichen auf dieselbe Länge gebracht. Stellen, die
+    ohnehin mit <code>typeof</code> abgesichert sind, bleiben unangetastet.
+  </p>
+  <p data-lang="en">
+    JavaScriptCore hides it while the gigacage is unavailable — and that
+    reservation is 64 GB. Measured on the device: iOS grants a process about
+    9 GB, past which every <code>mmap</code> fails. So every <em>eager</em> use
+    in the binary is rewritten to <code>ArrayBuffer</code> and padded with
+    spaces to the same length. Places already guarded by <code>typeof</code> are
+    left alone.
+  </p>
+
+  <h3 data-lang="de">Skripte lassen sich nicht starten</h3>
+  <h3 data-lang="en">Shell scripts cannot be spawned</h3>
+  <p data-lang="de">
+    <code>posix_spawn</code> auf ein <code>#!</code>-Skript liefert unter iOS
+    <code>EPERM</code> — auch aus unverändertem Node heraus. Claude Code ruft
+    aber <code>security</code> für den Schlüsselbund und <code>open</code> für
+    den Browser auf, und beides bringt iOS nicht mit. Beide Ersätze sind deshalb
+    übersetzte Programme, keine Skripte. Ohne den ersten wird das Anmeldetoken
+    stillschweigend nicht gespeichert.
+  </p>
+  <p data-lang="en">
+    <code>posix_spawn</code> on a <code>#!</code> script returns
+    <code>EPERM</code> on iOS — even from an unmodified Node. But Claude Code
+    calls <code>security</code> for the keychain and <code>open</code> for the
+    browser, and iOS ships neither. Both replacements are therefore compiled
+    programs, not scripts. Without the first, the sign-in token is silently
+    never stored.
+  </p>
+
+  <h3 data-lang="de">Zwei Framework-Pfade</h3>
+  <h3 data-lang="en">Two framework paths</h3>
+  <p data-lang="de">
+    Bun öffnet <code>…/Versions/A/CoreFoundation</code>; unter iOS liegen die
+    Frameworks flach. Ohne die Korrektur bricht es mit
+    <em>Cannot Load CoreFoundation</em> ab. iOS' CoreServices exportiert die
+    FSEvents-Funktionen übrigens wirklich — der Dateiwächter läuft.
+  </p>
+  <p data-lang="en">
+    Bun opens <code>…/Versions/A/CoreFoundation</code>; on iOS the frameworks
+    are flat. Without the fix it aborts with <em>Cannot Load CoreFoundation</em>.
+    iOS' CoreServices does export the FSEvents functions, by the way — the file
+    watcher works.
+  </p>
+</div>
+
+<h2 data-lang="de">Einrichten</h2>
+<h2 data-lang="en">Setup</h2>
+<div class="card">
+  <ol data-lang="de">
+    <li><strong>Claude Code</strong> öffnen</li>
+    <li><strong>Claude Code einrichten</strong> antippen — rund 90 MB werden
+        geladen, umgerechnet und signiert</li>
+    <li><strong>Anmelden</strong> antippen, die Seite im Browser öffnen, den
+        Code zurück in die App einfügen</li>
+    <li><strong>Sitzung öffnen</strong></li>
+  </ol>
+  <ol data-lang="en">
+    <li>Open <strong>Claude Code</strong></li>
+    <li>Tap <strong>Set up Claude Code</strong> — about 90 MB are downloaded,
+        converted and signed</li>
+    <li>Tap <strong>Sign in</strong>, open the page in your browser, paste the
+        code back into the app</li>
+    <li>Tap <strong>Open session</strong></li>
+  </ol>
+  <p class="note" data-lang="de">
+    Ein Claude-Abonnement oder ein Anthropic-Konto ist Voraussetzung. Im
+    Terminal steht derselbe Stand als <code>claude</code> bereit.
+  </p>
+  <p class="note" data-lang="en">
+    A Claude subscription or an Anthropic account is required. The same build is
+    available in a terminal as <code>claude</code>.
+  </p>
+</div>
+
+<h2 data-lang="de">Was du wissen solltest</h2>
+<h2 data-lang="en">Worth knowing</h2>
+<div class="card">
+  <p data-lang="de">
+    <strong>Root.</strong> Die Sitzung läuft als root und die Rückfragen vor
+    Werkzeugaufrufen sind abgeschaltet. Genau darum geht es bei diesem Paket —
+    und es heißt, dass eine Sitzung alles auf dem Gerät ändern oder löschen
+    kann. Entsprechend behandeln.
+  </p>
+  <p data-lang="en">
+    <strong>Root.</strong> The session runs as root and tool permission prompts
+    are off. That is the point of this package — and it means a session can
+    change or delete anything on the device. Treat it accordingly.
+  </p>
+  <p data-lang="de">
+    <strong>Das Token liegt im Klartext.</strong> iOS hat keinen Schlüsselbund,
+    den ein fremder Prozess benutzen kann. Das Anmeldetoken landet deshalb in
+    einer Datei mit Modus 0600 unter <code>~/.claude/keychain</code>.
+  </p>
+  <p data-lang="en">
+    <strong>The token sits on disk.</strong> iOS has no keychain a third-party
+    process can use, so the sign-in token goes into a file with mode 0600 under
+    <code>~/.claude/keychain</code>.
+  </p>
+  <p data-lang="de">
+    <strong>Keine Terminalnachbildung.</strong> Die App stellt die Unterhaltung
+    selbst dar statt die Terminaloberfläche nachzubauen — auf 375 pt liest sich
+    das besser und kommt ohne Esc und Pfeiltasten aus. Wer die echte Oberfläche
+    will, startet <code>claude</code> in NewTerm.
+  </p>
+  <p data-lang="en">
+    <strong>No terminal emulation.</strong> The app renders the conversation
+    itself instead of rebuilding the terminal interface — on 375 pt that reads
+    better and needs no Esc or arrow keys. For the real interface, run
+    <code>claude</code> in NewTerm.
+  </p>
+  <p data-lang="de">
+    <strong>Aktualisieren.</strong> Der eingebaute Autoupdater ist abgeschaltet;
+    er würde das umgerechnete Binary durch das macOS-Build ersetzen. Für eine
+    neuere Fassung in der App <strong>Neu einrichten</strong> antippen.
+  </p>
+  <p data-lang="en">
+    <strong>Updates.</strong> The built-in auto-updater is off; it would replace
+    the converted binary with the macOS build. For a newer release, tap
+    <strong>Reinstall / update</strong> in the app.
+  </p>
+</div>
+
+<h2 data-lang="de">System</h2>
+<h2 data-lang="en">System</h2>
+<div class="card">
+  <p data-lang="de">
+    iOS 18, rootless, Dopamine. arm64 und arm64e. Entwickelt und geprüft auf
+    einem iPhone 11 Pro mit iOS 18.6.2. Rund 300 MB nach dem Einrichten, das
+    Paket selbst 50 KB.
+  </p>
+  <p data-lang="en">
+    iOS 18, rootless, Dopamine. arm64 and arm64e. Developed and tested on an
+    iPhone 11 Pro running iOS 18.6.2. About 300 MB after setup; the package
+    itself is 50 KB.
+  </p>
+  <p class="note" data-lang="de">
+    Claude Code selbst ist Software von Anthropic und nicht Teil dieses Pakets —
+    es wird beim Einrichten auf deinem Gerät von npm geladen.
+  </p>
+  <p class="note" data-lang="en">
+    Claude Code itself is Anthropic's software and not part of this package — it
+    is fetched from npm on your device at setup time.
+  </p>
+</div>
+
+</div>
+</body>
+</html>

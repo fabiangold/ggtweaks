@@ -1,0 +1,124 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://fabiangold.github.io/ggtweaks/icon.png",
+  "tintColor": "#D97757",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Claude Code on the iPhone — the real CLI, not a remote control for a Mac. An app for signing in and talking to it, and behind that a root daemon running the actual binary on the device."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Anthropic ships Claude Code as a Bun-compiled binary for macOS. This package downloads that build on first run and adapts it for iOS: the Mach-O platform is rewritten, a replacement libSystem supplies the three symbols iOS lacks, the `SharedArrayBuffer` uses are neutralised (JavaScriptCore cannot offer it on iOS — its gigacage wants 64 GB of address space and iOS caps a process near 9 GB), and two macOS framework paths are corrected. Then it is signed with the entitlements the JIT needs."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "What you get"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- An app with a sign-in screen and a conversation view, in English and German\n- The current release of Claude Code, fetched from npm at setup time — not a build frozen into the package\n- The session runs **as root** in `/var/root`, with full access to the device\n- The same build in a terminal as `claude`\n- Roughly 300 MB after setup; the package itself is 50 KB"
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Setup"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "1. Open the **Claude Code** app\n2. Tap **Set up Claude Code** — it downloads about 90 MB, adapts and signs it\n3. Tap **Sign in**, open the page in your browser, paste the code back\n4. Tap **Open session**\n\nA Claude subscription or an Anthropic account is required."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Worth knowing"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**Root.** The session runs as root and tool permission prompts are switched off, so Claude can act on the device without asking each time. That is the point of the package — and it means a session can change or delete anything. Treat it accordingly."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**The token sits on disk.** iOS has no keychain a third-party process can use, so the sign-in token is stored in a file with mode 0600 under `~/.claude/keychain`."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**No terminal emulation.** The app renders the conversation natively rather than the terminal interface — on a 375 pt screen that reads better and needs no Esc or arrow keys. Anyone who wants the real interface runs `claude` in NewTerm."
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**Updates.** The built-in auto-updater is switched off; it would replace the adapted binary with the macOS build. Tap **Reinstall / update** in the app to move to a newer release."
+        }
+      ]
+    },
+    {
+      "tabname": "Changes",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.0.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "First release.\n\nFour things had to be worked out before this could run at all:\n\n- **The binary.** Of its 842 undefined symbols, exactly three are missing on iOS: `__clear_cache`, `pthread_jit_write_protect_np` and `posix_spawn_file_actions_addfchdir`. A replacement libSystem supplies them and re-exports the rest.\n- **SharedArrayBuffer.** JavaScriptCore only exposes it when the gigacage is up, and that reservation is 64 GB — measured on the device, iOS refuses anything past about 9 GB. Every eager use in the binary is rewritten to `ArrayBuffer`.\n- **Shell scripts cannot be spawned.** `posix_spawn` on a `#!` script returns `EPERM` on iOS. Claude Code calls `security` and `open`, neither of which iOS has, so both replacements are compiled programs rather than scripts.\n- **Framework paths.** Bun opens `.../Versions/A/CoreFoundation`; on iOS the path is flat, and without the fix Bun aborts with *Cannot Load CoreFoundation*."
+        }
+      ]
+    },
+    {
+      "tabname": "System",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableTextView",
+          "title": "System",
+          "text": "iOS 18, rootless"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Jailbreak",
+          "text": "Dopamine"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Architecture",
+          "text": "arm64, arm64e"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Languages",
+          "text": "English, German"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Space needed",
+          "text": "about 300 MB after setup"
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Developed and tested on an iPhone 11 Pro running iOS 18.6.2 with Dopamine. Other devices and versions are unverified.\n\nClaude Code itself is Anthropic's software and is not part of this package — it is fetched from npm on your device at setup time."
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source",
+          "action": "https://github.com/fabiangold/ggtweaks",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}
