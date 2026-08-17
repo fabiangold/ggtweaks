@@ -22,10 +22,10 @@
 <header>
   <h1>VPN Kill Switch</h1>
   <p class="lead" data-lang="de">
-    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.14.0.
+    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.15.0.
   </p>
   <p class="lead" data-lang="en">
-    Blocks network traffic as soon as the VPN connection drops. Version 3.14.0.
+    Blocks network traffic as soon as the VPN connection drops. Version 3.15.0.
   </p>
 </header>
 
@@ -33,7 +33,7 @@
   <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
     <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
   </a>
-  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.14.0_iphoneos-arm64.deb">
+  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.15.0_iphoneos-arm64.deb">
     <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
   </a>
 </div>
@@ -73,12 +73,13 @@
   <li>Eigene Sperrliste für dauerhaft blockierte Ziele, auch ganze Bereiche wie <code>17.0.0.0/8</code></li>
   <li>Drei Sperrverfahren wählbar: an Interfaces gebunden, global verwerfend oder ablehnend</li>
   <li>App mit Live-Anzeige des Datenverkehrs pro Interface, getrennt nach Richtung</li>
+  <li>Lokale Datenschutzübersicht für VPN-Routen, IPv6, DNS, physische Netze und bekannte VPN-Endpunkte</li>
   <li>Installationstest und Diagnosebericht zum Weitergeben</li>
   <li>Pause-Funktion für gewollte Trennungen, endet automatisch bei bestehender Verbindung</li>
   <li>Dauerhafte Systemmitteilungen für Sperre, Wiederverbindung, Fehler, Netzwechsel und Dienstzustand</li>
   <li>Zeitkritische Warnstufe für Schutzfehler, ohne den Stummschalter zu umgehen</li>
   <li>Kein automatisches globales Freigabefenster mehr; nur VPN-Endpunkte bleiben erreichbar</li>
-  <li>Notbremse: Ein Block wird nach zehn Minuten ohne VPN selbstständig aufgehoben</li>
+  <li>Strikter Lockdown als Standard: Eine aktive Sperre wird niemals automatisch aufgehoben</li>
 </ul>
 <ul data-lang="en">
   <li>Blocks IPv4 and IPv6 independently</li>
@@ -87,12 +88,13 @@
   <li>Separate block list for permanently unreachable targets, including ranges like <code>17.0.0.0/8</code></li>
   <li>Three blocking styles: interface-scoped, globally discarding, or rejecting</li>
   <li>App with live per-interface traffic view, separated by direction</li>
+  <li>Local privacy dashboard for VPN routes, IPv6, DNS, physical networks and known VPN endpoints</li>
   <li>Installation test and shareable diagnostic report</li>
   <li>Pause for intentional disconnects, ends automatically once the tunnel is back</li>
   <li>Persistent system notifications for blocking, reconnection, failures, network changes and daemon health</li>
   <li>Time-sensitive warning level for protection failures without bypassing the silent switch</li>
   <li>No automatic global release window; only VPN endpoints remain reachable</li>
-  <li>Safety release: a block is lifted automatically after ten minutes without VPN</li>
+  <li>Strict lockdown by default: an active block is never released automatically</li>
 </ul>
 
 <h2 data-lang="de">Einrichtung</h2>

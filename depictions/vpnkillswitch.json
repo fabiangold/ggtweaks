@@ -24,7 +24,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Detects server addresses on its own, adopting them after repeated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Persistent notifications for blocking, reconnection, failures, network changes and daemon health\n- Time-sensitive protection warnings without bypassing the silent switch\n- No automatic global release window; only VPN endpoints remain reachable\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Safety release: a block is lifted automatically after ten minutes without VPN"
+          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Detects server addresses on its own, adopting them after repeated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Local privacy dashboard for VPN routes, IPv6, DNS, physical networks and known VPN endpoints\n- Persistent notifications for blocking, reconnection, failures, network changes and daemon health\n- Time-sensitive protection warnings without bypassing the silent switch\n- No automatic global release window; only VPN endpoints remain reachable\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Strict lockdown by default: an active block is never released automatically"
         },
         {
           "class": "DepictionSeparatorView"
@@ -66,6 +66,14 @@
       "tabname": "Changes",
       "class": "DepictionStackView",
       "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "3.15.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Added a fully local privacy dashboard for the active IPv4 and IPv6 tunnel routes, system DNS resolver, physical Wi-Fi/cellular links and learned VPN endpoints\n- The dashboard distinguishes the actual Mullvad interface from unrelated system `utun` interfaces and reports measurement limits instead of claiming packet-level proof\n- Diagnostic reports now include IPv6 default routes, DNS servers, physical links and learned endpoints\n- Strict lockdown is now the safe default: the old automatic two-minute release after ten minutes without VPN is disabled because it could expose all traffic\n- Added a visible Strict lockdown control; manual pause and reconnect actions remain available\n- Finished the remaining English/German UI cleanup and corrected hard-coded German labels"
+        },
         {
           "class": "DepictionSubheaderView",
           "title": "3.14.0"
