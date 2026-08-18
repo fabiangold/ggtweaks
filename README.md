@@ -11,7 +11,7 @@ Kleinschreibung. In Sileo oder Zebra unter Quellen hinzufügen.
 
 | Paket | Version | Beschreibung |
 |---|---|---|
-| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.17.0 | Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht |
+| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.18.0 | Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht |
 | [GG Statusbar Editor](https://fabiangold.github.io/ggtweaks/depictions/statusbareditor/) | 0.6.2 | Bearbeitet die Statusleiste und zeigt den Zustand des VPN Kill Switch |
 | [Coulomb](https://fabiangold.github.io/ggtweaks/depictions/coulomb/) | 1.2.0 | Profilbasiertes Energiemanagement mit Telemetrie und Steuer-App |
 
@@ -54,7 +54,7 @@ case-sensitive). Add it under Sources in Sileo or Zebra.
 
 | Package | Version | Description |
 |---|---|---|
-| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.17.0 | Blocks network traffic as soon as the VPN connection drops |
+| [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.18.0 | Blocks network traffic as soon as the VPN connection drops |
 | [GG Statusbar Editor](https://fabiangold.github.io/ggtweaks/depictions/statusbareditor/) | 0.6.2 | Edits the status bar and shows the VPN Kill Switch state |
 | [Coulomb](https://fabiangold.github.io/ggtweaks/depictions/coulomb/) | 1.2.0 | Profile-based power management with telemetry and a control app |
 

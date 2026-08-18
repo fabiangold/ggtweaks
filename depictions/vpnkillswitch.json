@@ -24,7 +24,7 @@
         },
         {
           "class": "DepictionMarkdownView",
-          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Detects server addresses on its own, adopting them after repeated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Local privacy dashboard for VPN routes, IPv6, DNS, physical networks and known VPN endpoints\n- Local event history with search, filters and export; no visited domains or packet contents\n- Trusted Wi-Fi list with contextual warnings for unknown networks and cellular data\n- Persistent notifications for blocking, reconnection, failures, network changes and daemon health\n- Time-sensitive protection warnings without bypassing the silent switch\n- No automatic global release window; only VPN endpoints remain reachable\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Strict lockdown by default: an active block is never released automatically"
+          "markdown": "- Blocks IPv4 and IPv6 independently\n- Allow list for VPN servers so the VPN app can reconnect\n- Reads the active server from Mullvad's own tunnel log and adopts it only after time-separated confirmation\n- Separate block list for permanently unreachable targets, including ranges like `17.0.0.0/8`\n- Three blocking styles: interface-scoped, globally discarding, or rejecting\n- App with a live per-interface traffic view, separated by direction\n- Local privacy dashboard for VPN routes, IPv6, DNS, physical networks and known VPN endpoints\n- Local event history with search, filters and export; no visited domains or packet contents\n- Trusted Wi-Fi list with contextual warnings for unknown networks and cellular data\n- Persistent notifications for blocking, reconnection, failures, network changes and daemon health\n- Time-sensitive protection warnings without bypassing the silent switch\n- No automatic global release window; only VPN endpoints remain reachable\n- Installation test and a shareable diagnostic report\n- Pause for intentional disconnects, ends on its own once the tunnel is back\n- Strict lockdown by default: an active block is never released automatically"
         },
         {
           "class": "DepictionSeparatorView"
@@ -66,6 +66,14 @@
       "tabname": "Changes",
       "class": "DepictionStackView",
       "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "3.18.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Replaced broad automatic route learning with a Mullvad-specific source: the active WireGuard endpoint is read from Mullvad's own Packet Tunnel log\n- A new endpoint is permitted only after two observations at least 30 seconds apart while the tunnel remains up\n- Candidate and learned endpoint metadata now records source, first/last observation and confirmation count\n- Legacy entries remain visible and can be removed safely from the app instead of being silently trusted or deleted\n- The old provider-independent route heuristic remains available only as an explicit compatibility option; automatic learning can also be disabled\n- Completed English/German localization for all new controls and status text"
+        },
         {
           "class": "DepictionSubheaderView",
           "title": "3.17.0"

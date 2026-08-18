@@ -93,11 +93,11 @@ SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.j
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 3.17.0
-Installed-Size: 1112
-Filename: debs/com.ggtweaks.vpnkillswitch_3.17.0_iphoneos-arm64.deb
-Size: 165118
-MD5sum: e2b353538e0a5bdccaf9f09d468a7168
-SHA1: 2efa2276dd93e9af1906b9eea129e4bb28c4ff27
-SHA256: a7f4831490c4943586188f2545ac1d2d73393c91812235716b9611fe2c664f76
+Version: 3.18.0
+Installed-Size: 1148
+Filename: debs/com.ggtweaks.vpnkillswitch_3.18.0_iphoneos-arm64.deb
+Size: 176096
+MD5sum: 883a6ab58524f897b4bd1a1a91719392
+SHA1: e7c6e5a64f6cfea0c64bee9c4b25e425f94ac900
+SHA256: f793eb9b530464e4afbd692a97469e26fb0403c1564568d9832f8dcf6235bc0e
 

@@ -22,10 +22,10 @@
 <header>
   <h1>VPN Kill Switch</h1>
   <p class="lead" data-lang="de">
-    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.17.0.
+    Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht. Version 3.18.0.
   </p>
   <p class="lead" data-lang="en">
-    Blocks network traffic as soon as the VPN connection drops. Version 3.17.0.
+    Blocks network traffic as soon as the VPN connection drops. Version 3.18.0.
   </p>
 </header>
 
@@ -33,7 +33,7 @@
   <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
     <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
   </a>
-  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.17.0_iphoneos-arm64.deb">
+  <a class="btn plain" href="../../debs/com.ggtweaks.vpnkillswitch_3.18.0_iphoneos-arm64.deb">
     <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
   </a>
 </div>
@@ -69,7 +69,7 @@
 <ul data-lang="de">
   <li>Sperrt IPv4 und IPv6 getrennt voneinander</li>
   <li>Ausnahmeliste für VPN-Server, damit die VPN-App neu verbinden kann</li>
-  <li>Erkennt Server-Adressen selbstständig und übernimmt sie nach mehrfacher Bestätigung</li>
+  <li>Liest den aktiven Server aus Mullvads eigenem Tunnelprotokoll und übernimmt ihn erst nach zeitlich getrennter Bestätigung</li>
   <li>Eigene Sperrliste für dauerhaft blockierte Ziele, auch ganze Bereiche wie <code>17.0.0.0/8</code></li>
   <li>Drei Sperrverfahren wählbar: an Interfaces gebunden, global verwerfend oder ablehnend</li>
   <li>App mit Live-Anzeige des Datenverkehrs pro Interface, getrennt nach Richtung</li>
@@ -86,7 +86,7 @@
 <ul data-lang="en">
   <li>Blocks IPv4 and IPv6 independently</li>
   <li>Allow-list for VPN servers so the VPN app can reconnect</li>
-  <li>Detects server addresses on its own, adopting them after repeated confirmation</li>
+  <li>Reads the active server from Mullvad's own tunnel log and adopts it only after time-separated confirmation</li>
   <li>Separate block list for permanently unreachable targets, including ranges like <code>17.0.0.0/8</code></li>
   <li>Three blocking styles: interface-scoped, globally discarding, or rejecting</li>
   <li>App with live per-interface traffic view, separated by direction</li>
