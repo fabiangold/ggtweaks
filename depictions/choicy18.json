@@ -1,0 +1,74 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://fabiangold.github.io/ggtweaks/icon.png",
+  "tintColor": "#2ECC71",
+  "tabs": [
+    {
+      "tabname": "Details",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Control tweak injection per app and process on iOS 18. Disable all tweaks for one app, or configure an allow/deny list of individual dylibs."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Features"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- Disable tweak injection per app or daemon\n- Per-process allow and deny lists\n- Global deny list with exceptions\n- Launch an app once with or without tweaks\n- Separate preference domain from the original Choicy"
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "First test build"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "Version 0.1.0 builds successfully for arm64 and arm64e but has **not yet been verified on-device**. It conflicts with `com.opa334.choicy`; do not install both together.\n\nEscape hatch over SSH: `touch /var/jb/var/mobile/.choicy18_disable`, followed by `sbreload`."
+        }
+      ]
+    },
+    {
+      "tabname": "System",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionTableTextView",
+          "title": "System",
+          "text": "iOS 18, rootless"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Architecture",
+          "text": "arm64, arm64e"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Dependencies",
+          "text": "ElleKit, AltList, PreferenceLoader"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Target device",
+          "text": "iPhone 11 Pro, iOS 18.6.2"
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Original Choicy source",
+          "action": "https://github.com/opa334/Choicy",
+          "openExternal": true
+        }
+      ]
+    }
+  ]
+}
