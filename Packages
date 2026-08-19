@@ -1,3 +1,24 @@
+Package: com.ggtweaks.choicy18
+Name: Choicy 18
+Depends: firmware (>= 18.0), ellekit, com.opa334.altlist (>= 1.0.4), preferenceloader
+Description: Tweak-Injection pro App und Prozess fuer iOS 18 steuern.
+Maintainer: GGTweaks
+Author: GGTweaks; basiert auf Choicy von opa334
+Section: Tweaks
+Conflicts: com.opa334.choicy
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/choicy18/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/choicy18.json
+Icon: https://fabiangold.github.io/ggtweaks/icon.png
+Tag: compatible::ios18
+Architecture: iphoneos-arm64
+Version: 0.1.0
+Installed-Size: 1124
+Filename: debs/com.ggtweaks.choicy18_0.1.0_iphoneos-arm64.deb
+Size: 167220
+MD5sum: c668bbd7b2aaafd0f5a7961adbda2e64
+SHA1: 746034fb94f1f929ba4d20c0857bc4576a2e4c88
+SHA256: 2faaf2ae2b7c89e03ad5ee05e972422eccbaff243e15b2f5f9a53dba8600cc2c
+
 Package: com.ggtweaks.claudecode
 Name: Claude Code
 Description: Claude Code im Terminal auf dem iPhone. Holt die aktuelle CLI von Anthropic und macht sie unter iOS lauffähig.

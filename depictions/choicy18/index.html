@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choicy 18 — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>Choicy 18</h1>
+  <p class="lead" data-lang="de">
+    Tweak-Injection unter iOS 18 pro App und Prozess steuern. Version 0.1.0.
+  </p>
+  <p class="lead" data-lang="en">
+    Control tweak injection per app and process on iOS 18. Version 0.1.0.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.choicy18_0.1.0_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Funktionen</h2>
+<h2 data-lang="en">Features</h2>
+<div class="card">
+  <ul data-lang="de">
+    <li>Tweak-Injection für einzelne Apps und Prozesse vollständig abschalten</li>
+    <li>Pro Prozess nur bestimmte Tweak-Dylibs erlauben oder sperren</li>
+    <li>Globale Sperrliste mit Ausnahmen</li>
+    <li>Apps über das Home-Screen-Menü einmalig mit oder ohne Tweaks starten</li>
+    <li>Eigene Einstellungen, getrennt vom originalen Choicy</li>
+  </ul>
+  <ul data-lang="en">
+    <li>Completely disable tweak injection for individual apps and processes</li>
+    <li>Allow or deny selected tweak dylibs per process</li>
+    <li>Global deny list with per-process exceptions</li>
+    <li>Launch an app once with or without tweaks from its Home Screen menu</li>
+    <li>Separate preferences from the original Choicy package</li>
+  </ul>
+</div>
+
+<h2 data-lang="de">Wichtiger Hinweis</h2>
+<h2 data-lang="en">Important notice</h2>
+<div class="card">
+  <p data-lang="de">
+    Dies ist der erste iOS-18-Testbuild. Er wurde erfolgreich für arm64 und
+    arm64e gebaut, aber noch nicht auf dem Gerät installiert und verifiziert.
+    Das Paket steht im Konflikt mit <code>com.opa334.choicy</code>; beide dürfen
+    nicht gleichzeitig installiert sein.
+  </p>
+  <p data-lang="en">
+    This is the first iOS 18 test build. It builds successfully for arm64 and
+    arm64e but has not yet been installed and verified on-device. The package
+    conflicts with <code>com.opa334.choicy</code>; do not install both together.
+  </p>
+  <p class="note" data-lang="de">
+    Notausgang per SSH: <code>touch /var/jb/var/mobile/.choicy18_disable</code>,
+    danach <code>sbreload</code>.
+  </p>
+  <p class="note" data-lang="en">
+    SSH escape hatch: <code>touch /var/jb/var/mobile/.choicy18_disable</code>,
+    then run <code>sbreload</code>.
+  </p>
+</div>
+
+<h2 data-lang="de">Voraussetzungen</h2>
+<h2 data-lang="en">Requirements</h2>
+<div class="card">
+  <table>
+    <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
+    <tr><td data-lang="de">Architektur</td><td data-lang="en">Architecture</td><td>arm64, arm64e</td></tr>
+    <tr><td data-lang="de">Abhängigkeiten</td><td data-lang="en">Dependencies</td><td>ElleKit, AltList, PreferenceLoader</td></tr>
+    <tr><td data-lang="de">Zielgerät</td><td data-lang="en">Target device</td><td>iPhone 11 Pro, iOS 18.6.2</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p data-lang="de">Paket <code>com.ggtweaks.choicy18</code> · basiert auf dem MIT-lizenzierten Choicy von opa334</p>
+  <p data-lang="en">Package <code>com.ggtweaks.choicy18</code> · based on the MIT-licensed Choicy by opa334</p>
+</footer>
+
+</div>
+</body>
+</html>
