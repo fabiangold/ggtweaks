@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GG Clipboard — GGTweaks</title>
+<link rel="icon" href="../../favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/lang.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="back" href="../../"><span data-lang="de">← Alle Pakete</span><span data-lang="en">← All packages</span></a>
+  <div class="langtoggle" role="group" aria-label="Sprache / Language">
+    <button id="btn-de" aria-pressed="true">Deutsch</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header>
+  <h1>GG Clipboard</h1>
+  <p class="lead" data-lang="de">
+    Lokaler Zwischenablageverlauf für iOS 18 mit Suche und Favoriten. Version 0.1.0.
+  </p>
+  <p class="lead" data-lang="en">
+    Local clipboard history for iOS 18 with search and favorites. Version 0.1.0.
+  </p>
+</header>
+
+<div class="btns">
+  <a class="btn primary" href="sileo://source/https://fabiangold.github.io/ggtweaks/">
+    <span data-lang="de">In Sileo öffnen</span><span data-lang="en">Open in Sileo</span>
+  </a>
+  <a class="btn plain" href="../../debs/com.ggtweaks.ggclipboard_0.1.0_iphoneos-arm64.deb">
+    <span data-lang="de">.deb laden</span><span data-lang="en">Download .deb</span>
+  </a>
+</div>
+
+<h2 data-lang="de">Bedienung</h2>
+<h2 data-lang="en">Usage</h2>
+<div class="card">
+  <ul data-lang="de">
+    <li>Zwei Finger mindestens 0,55 Sekunden auf die Statusleiste halten</li>
+    <li>Verlauf durchsuchen und einen Eintrag zum Kopieren antippen</li>
+    <li>Nach links wischen, um Einträge zu favorisieren oder zu löschen</li>
+    <li>Favoriten bleiben beim Leeren des normalen Verlaufs erhalten</li>
+  </ul>
+  <ul data-lang="en">
+    <li>Hold two fingers on the status bar for at least 0.55 seconds</li>
+    <li>Search the history and tap an entry to copy it</li>
+    <li>Swipe left to favorite or delete entries</li>
+    <li>Favorites survive clearing the regular history</li>
+  </ul>
+</div>
+
+<h2 data-lang="de">Datenschutz</h2>
+<h2 data-lang="en">Privacy</h2>
+<div class="card">
+  <p data-lang="de">
+    Alles bleibt lokal. Der Verlauf wird mit Dateirechten 0600 und iOS-Dateischutz
+    gespeichert. Reine vier- bis achtstellige Zahlencodes sowie Pasteboard-Inhalte,
+    die als verborgen oder sensibel markiert sind, werden übersprungen. Die
+    Passwörter-App ist standardmäßig ausgeschlossen.
+  </p>
+  <p data-lang="en">
+    Everything stays local. History uses file mode 0600 and iOS file protection.
+    Plain four-to-eight-digit codes and pasteboard content marked concealed or
+    sensitive are skipped. The Passwords app is excluded by default.
+  </p>
+</div>
+
+<h2 data-lang="de">Erster Testbuild</h2>
+<h2 data-lang="en">First test build</h2>
+<div class="card">
+  <p data-lang="de">
+    Der Build wurde für arm64 und arm64e geprüft, ist aber noch nicht auf dem
+    Gerät verifiziert. Falls die Statusleisten-Geste nicht reagiert, lässt sich
+    das Fenster per SSH mit <code>ggclipboardctl show</code> öffnen.
+  </p>
+  <p data-lang="en">
+    The build was verified for arm64 and arm64e but has not yet been tested
+    on-device. If the status-bar gesture does not react, open the window over
+    SSH with <code>ggclipboardctl show</code>.
+  </p>
+  <p class="note" data-lang="de">
+    Notausgang: <code>touch /var/mobile/.ggclipboard_disable</code>, danach <code>sbreload</code>.
+  </p>
+  <p class="note" data-lang="en">
+    Escape hatch: <code>touch /var/mobile/.ggclipboard_disable</code>, then run <code>sbreload</code>.
+  </p>
+</div>
+
+<h2 data-lang="de">Voraussetzungen</h2>
+<h2 data-lang="en">Requirements</h2>
+<div class="card">
+  <table>
+    <tr><td data-lang="de">System</td><td data-lang="en">System</td><td>iOS 18, rootless</td></tr>
+    <tr><td data-lang="de">Architektur</td><td data-lang="en">Architecture</td><td>arm64, arm64e</td></tr>
+    <tr><td data-lang="de">Abhängigkeit</td><td data-lang="en">Dependency</td><td>ElleKit</td></tr>
+    <tr><td data-lang="de">Zielgerät</td><td data-lang="en">Target device</td><td>iPhone 11 Pro, iOS 18.6.2</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p data-lang="de">Paket <code>com.ggtweaks.ggclipboard</code> · keine Netzwerkverbindung</p>
+  <p data-lang="en">Package <code>com.ggtweaks.ggclipboard</code> · no network access</p>
+</footer>
+
+</div>
+</body>
+</html>

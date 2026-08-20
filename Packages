@@ -59,6 +59,26 @@ MD5sum: 4b1cc9fce2cdef9cfb297c3e82134f93
 SHA1: 2024b72ecddf8a101749af285c8d4abac9d1c76a
 SHA256: 0f2aabd29b7c747018ddd15a15630dc723a34888419146c7659fc9e2e55f6a9a
 
+Package: com.ggtweaks.ggclipboard
+Name: GG Clipboard
+Description: Lokaler Zwischenablageverlauf fuer iOS 18 mit Suche und Favoriten.
+Maintainer: GGTweaks
+Author: GGTweaks
+Section: Tweaks
+Depends: firmware (>= 18.0), ellekit
+Depiction: https://fabiangold.github.io/ggtweaks/depictions/ggclipboard/
+SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/ggclipboard.json
+Icon: https://fabiangold.github.io/ggtweaks/icon.png
+Tag: compatible::ios18
+Architecture: iphoneos-arm64
+Version: 0.1.0
+Installed-Size: 404
+Filename: debs/com.ggtweaks.ggclipboard_0.1.0_iphoneos-arm64.deb
+Size: 31992
+MD5sum: 31d424d10ce5b3d590645028bb6731c1
+SHA1: 11129f3196c87289c0110bb6af9dc4277bfdd057
+SHA256: 38065abb6a3569007c76f7327ad8180dd9d96d6f0046237e62dfdc93e12ada24
+
 Package: com.ggtweaks.ggpower
 Name: GG Power
 Description: Replaces Siri on the side button with a power dial you tap through.
