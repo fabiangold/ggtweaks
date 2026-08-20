@@ -3,20 +3,20 @@ Label: GGTweaks
 Suite: stable
 Version: 1.0
 Codename: ios
-Date: Thu, 20 Aug 2026 15:06:17 +0000
+Date: Thu, 20 Aug 2026 23:16:16 +0000
 Architectures: iphoneos-arm64
 Components: main
 Description: Tweaks für rootless Jailbreaks auf iOS 15+
 Acquire-By-Hash: no
 MD5Sum:
- aebdd526dcdb0caa26f0d82f6f2fdf59             5646 Packages
- 074a35e095c8b8449e0cb0645cf93280             1922 Packages.gz
- 06640f1b0a74a06861b045b65651015a             2061 Packages.bz2
+ 586209c107d14544487d8c9956dddac7             5636 Packages
+ d7c75082ee066d67f257683cfb54f0d4             1920 Packages.gz
+ e63eedbf0ce0e757e0ce27a620b96436             2074 Packages.bz2
 SHA1:
- 7f42984a059d9d766695d172bb912d819b66f785             5646 Packages
- 02d3679f5e53b82328ede08f0249c64c74149c14             1922 Packages.gz
- 3dc94649cf0fd41cb64a32f294732489b67a5dae             2061 Packages.bz2
+ 21e25140f075756b6a067e16478cbd0cee354ad4             5636 Packages
+ ce6171eed13b68b65c9529a005b0ab78f5512f56             1920 Packages.gz
+ c5167031e036033e43824e5c311d180aec2a6563             2074 Packages.bz2
 SHA256:
- fb137d97f00b73ad6a214977753cfe3fad81ab43c14bb3a3747fd9f63424fca6             5646 Packages
- 97797cce760e7ea01d34acf25cdab40f3c8a3b79a67139ada0a9060829e99bcc             1922 Packages.gz
- 7908c120e583d923690e725a522a370f042b4a37fc0484744efeb882d9cce956             2061 Packages.bz2
+ bd88ba0b9053db40e8e51bb87f3b217b21da06986658e34acd8097b6c259d340             5636 Packages
+ f584319a2f9529790ced8a509be3242d7d8072939a6c91f74a4227811330b52d             1920 Packages.gz
+ a18a91863b11728797a28ff4f2a4dfe8a133903c993b1c84e34fdbe8c3ea435f             2074 Packages.bz2

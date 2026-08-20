@@ -128,17 +128,17 @@ Description: Blockt jeglichen Netzwerkverkehr, sobald die VPN-Verbindung (utun) 
 Maintainer: GGTweaks
 Author: GGTweaks
 Section: Tweaks
-Depends: firmware (>= 15.0), ellekit
+Depends: firmware (>= 15.0)
 Depiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/
 SileoDepiction: https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch.json
 Icon: https://fabiangold.github.io/ggtweaks/icon.png
 Tag: compatible::ios18
 Architecture: iphoneos-arm64
-Version: 3.18.0
-Installed-Size: 1148
-Filename: debs/com.ggtweaks.vpnkillswitch_3.18.0_iphoneos-arm64.deb
-Size: 176096
-MD5sum: 883a6ab58524f897b4bd1a1a91719392
-SHA1: e7c6e5a64f6cfea0c64bee9c4b25e425f94ac900
-SHA256: f793eb9b530464e4afbd692a97469e26fb0403c1564568d9832f8dcf6235bc0e
+Version: 3.22.0
+Installed-Size: 704
+Filename: debs/com.ggtweaks.vpnkillswitch_3.22.0_iphoneos-arm64.deb
+Size: 108222
+MD5sum: fe1f61246548e42d94b94ea1836a2b0f
+SHA1: 4c13a0471640c808c774b0336c199b3a00e85204
+SHA256: 48464f283d6562330ff1b21a2451aa4a074eb0e24711524deba70df921a3a4ca
 
