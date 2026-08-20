@@ -3,6 +3,20 @@ Label: GGTweaks
 Suite: stable
 Version: 1.0
 Codename: ios
+Date: Thu, 20 Aug 2026 15:06:17 +0000
 Architectures: iphoneos-arm64
 Components: main
 Description: Tweaks für rootless Jailbreaks auf iOS 15+
+Acquire-By-Hash: no
+MD5Sum:
+ aebdd526dcdb0caa26f0d82f6f2fdf59             5646 Packages
+ 074a35e095c8b8449e0cb0645cf93280             1922 Packages.gz
+ 06640f1b0a74a06861b045b65651015a             2061 Packages.bz2
+SHA1:
+ 7f42984a059d9d766695d172bb912d819b66f785             5646 Packages
+ 02d3679f5e53b82328ede08f0249c64c74149c14             1922 Packages.gz
+ 3dc94649cf0fd41cb64a32f294732489b67a5dae             2061 Packages.bz2
+SHA256:
+ fb137d97f00b73ad6a214977753cfe3fad81ab43c14bb3a3747fd9f63424fca6             5646 Packages
+ 97797cce760e7ea01d34acf25cdab40f3c8a3b79a67139ada0a9060829e99bcc             1922 Packages.gz
+ 7908c120e583d923690e725a522a370f042b4a37fc0484744efeb882d9cce956             2061 Packages.bz2

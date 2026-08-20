@@ -33,8 +33,38 @@ for DEB in debs/*.deb; do
 	rm -rf "$WORK"
 done
 
-gzip -9kf Packages
+gzip -9kfn Packages
 bzip2 -9kf Packages
+
+# APT/Sileo benutzt die Prüfsummen der Release-Datei, um Änderungen am
+# Paketindex zu erkennen. Ohne diese Einträge bleibt auf Geräten häufig ein
+# alter Packages-Cache liegen, obwohl GitHub Pages bereits aktualisiert ist.
+RELEASE_DATE=$(LC_ALL=C TZ=UTC date '+%a, %d %b %Y %H:%M:%S %z')
+
+{
+	echo "Origin: GGTweaks"
+	echo "Label: GGTweaks"
+	echo "Suite: stable"
+	echo "Version: 1.0"
+	echo "Codename: ios"
+	echo "Date: $RELEASE_DATE"
+	echo "Architectures: iphoneos-arm64"
+	echo "Components: main"
+	echo "Description: Tweaks für rootless Jailbreaks auf iOS 15+"
+	echo "Acquire-By-Hash: no"
+	echo "MD5Sum:"
+	for INDEX in Packages Packages.gz Packages.bz2; do
+		printf ' %s %16s %s\n' "$(md5 -q "$INDEX")" "$(stat -f%z "$INDEX")" "$INDEX"
+	done
+	echo "SHA1:"
+	for INDEX in Packages Packages.gz Packages.bz2; do
+		printf ' %s %16s %s\n' "$(shasum -a 1 "$INDEX" | cut -d' ' -f1)" "$(stat -f%z "$INDEX")" "$INDEX"
+	done
+	echo "SHA256:"
+	for INDEX in Packages Packages.gz Packages.bz2; do
+		printf ' %s %16s %s\n' "$(shasum -a 256 "$INDEX" | cut -d' ' -f1)" "$(stat -f%z "$INDEX")" "$INDEX"
+	done
+} > Release
 
 echo "Index gebaut:"
 grep -E '^(Package|Version):' Packages | paste - - | sed 's/^/  /'
