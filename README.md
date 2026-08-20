@@ -11,6 +11,7 @@ Kleinschreibung. In Sileo oder Zebra unter Quellen hinzufügen.
 
 | Paket | Version | Beschreibung |
 |---|---|---|
+| [GG Clipboard](https://fabiangold.github.io/ggtweaks/depictions/ggclipboard/) | 0.1.0 | Lokaler Zwischenablageverlauf mit Suche und Favoriten |
 | [Choicy 18](https://fabiangold.github.io/ggtweaks/depictions/choicy18/) | 0.1.0 | Steuert die Tweak-Injection pro App und Prozess unter iOS 18 |
 | [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.18.0 | Blockiert den Netzwerkverkehr, sobald die VPN-Verbindung abbricht |
 | [GG Statusbar Editor](https://fabiangold.github.io/ggtweaks/depictions/statusbareditor/) | 0.6.2 | Bearbeitet die Statusleiste und zeigt den Zustand des VPN Kill Switch |
@@ -55,6 +56,7 @@ case-sensitive). Add it under Sources in Sileo or Zebra.
 
 | Package | Version | Description |
 |---|---|---|
+| [GG Clipboard](https://fabiangold.github.io/ggtweaks/depictions/ggclipboard/) | 0.1.0 | Local clipboard history with search and favorites |
 | [Choicy 18](https://fabiangold.github.io/ggtweaks/depictions/choicy18/) | 0.1.0 | Controls tweak injection per app and process on iOS 18 |
 | [VPN Kill Switch](https://fabiangold.github.io/ggtweaks/depictions/vpnkillswitch/) | 3.18.0 | Blocks network traffic as soon as the VPN connection drops |
 | [GG Statusbar Editor](https://fabiangold.github.io/ggtweaks/depictions/statusbareditor/) | 0.6.2 | Edits the status bar and shows the VPN Kill Switch state |
